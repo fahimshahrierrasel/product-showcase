@@ -1,0 +1,87 @@
+{
+    "header": {
+        "logo": "Tokyo Device Hub",
+        "nav": {
+            "laptops": "Laptops",
+            "smartphones": "Smartphones",
+            "tablets": "Tablets",
+            "audio": "Audio",
+            "accessories": "Accessories"
+        },
+        "search": "Search products...",
+        "contact": "Contact Us",
+        "language": "Language"
+    },
+    "home": {
+        "hero": {
+            "title": "Welcome to Tokyo Device Hub",
+            "subtitle": "Your premier destination for premium electronics in Tokyo"
+        },
+        "offers": {
+            "title": "Exciting Offers",
+            "limitedTime": "Limited Time",
+            "exclusive": "Exclusive",
+            "bestSeller": "Best Seller",
+            "bookNow": "Book Now"
+        },
+        "featured": {
+            "title": "Featured Products",
+            "all": "All",
+            "newArrivals": "New Arrivals",
+            "bestSellers": "Best Sellers",
+            "viewAll": "View All Products"
+        },
+        "contact": {
+            "title": "Get in Touch with Us",
+            "subtitle": "We're here to help you find the perfect device",
+            "call": {
+                "title": "Call Us",
+                "number": "+81-3-5555-1234",
+                "hours": "Mon-Sat 10:00-20:00 JST"
+            },
+            "email": {
+                "title": "Email Us",
+                "address": "info@tokyodevicehub.jp",
+                "response": "Response within 24 hours"
+            },
+            "visit": {
+                "title": "Visit Our Store",
+                "action": "Get Directions",
+                "description": "Come see our products in person"
+            }
+        }
+    },
+    "products": {
+        "viewDetails": "View Details",
+        "outOfStock": "Out of Stock",
+        "price": "Price"
+    },
+    "footer": {
+        "brand": "Tokyo Device Hub",
+        "description": "Your premier destination for the latest electronics and technology devices in Tokyo. We bring you the future, today.",
+        "categories": {
+            "title": "Categories",
+            "laptops": "Laptops",
+            "smartphones": "Smartphones",
+            "tablets": "Tablets",
+            "smartwatches": "Smartwatches",
+            "audio": "Audio Devices",
+            "accessories": "Accessories"
+        },
+        "support": {
+            "title": "Support",
+            "contact": "Contact Us",
+            "booking": "Booking Process",
+            "faq": "FAQ",
+            "productInfo": "Product Info",
+            "warranty": "Warranty"
+        },
+        "contactInfo": {
+            "title": "Contact Info",
+            "phone": "+81-3-5555-1234",
+            "email": "info@tokyodevicehub.jp",
+            "address": "1-2-3 Shibuya, Shibuya-ku\nTokyo 150-0002, Japan"
+        },
+        "copyright": "© 2025 Tokyo Device Hub. All rights reserved."
+    }
+}

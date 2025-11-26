@@ -1,0 +1,87 @@
+{
+    "header": {
+        "logo": "東京デバイスハブ",
+        "nav": {
+            "laptops": "ノートパソコン",
+            "smartphones": "スマートフォン",
+            "tablets": "タブレット",
+            "audio": "オーディオ",
+            "accessories": "アクセサリー"
+        },
+        "search": "商品を検索...",
+        "contact": "お問い合わせ",
+        "language": "言語"
+    },
+    "home": {
+        "hero": {
+            "title": "東京デバイスハブへようこそ",
+            "subtitle": "東京のプレミアム電子機器の最高の目的地"
+        },
+        "offers": {
+            "title": "お得なオファー",
+            "limitedTime": "期間限定",
+            "exclusive": "限定",
+            "bestSeller": "ベストセラー",
+            "bookNow": "今すぐ予約"
+        },
+        "featured": {
+            "title": "おすすめ商品",
+            "all": "すべて",
+            "newArrivals": "新着",
+            "bestSellers": "ベストセラー",
+            "viewAll": "すべての商品を見る"
+        },
+        "contact": {
+            "title": "お問い合わせ",
+            "subtitle": "最適なデバイスを見つけるお手伝いをします",
+            "call": {
+                "title": "お電話",
+                "number": "+81-3-5555-1234",
+                "hours": "月〜土 10:00-20:00 JST"
+            },
+            "email": {
+                "title": "メール",
+                "address": "info@tokyodevicehub.jp",
+                "response": "24時間以内に返信"
+            },
+            "visit": {
+                "title": "店舗訪問",
+                "action": "道順を見る",
+                "description": "実際に商品をご覧ください"
+            }
+        }
+    },
+    "products": {
+        "viewDetails": "詳細を見る",
+        "outOfStock": "在庫切れ",
+        "price": "価格"
+    },
+    "footer": {
+        "brand": "東京デバイスハブ",
+        "description": "東京で最新の電子機器とテクノロジーデバイスを提供する最高の目的地。私たちは未来を今日お届けします。",
+        "categories": {
+            "title": "カテゴリー",
+            "laptops": "ノートパソコン",
+            "smartphones": "スマートフォン",
+            "tablets": "タブレット",
+            "smartwatches": "スマートウォッチ",
+            "audio": "オーディオ機器",
+            "accessories": "アクセサリー"
+        },
+        "support": {
+            "title": "サポート",
+            "contact": "お問い合わせ",
+            "booking": "予約プロセス",
+            "faq": "よくある質問",
+            "productInfo": "製品情報",
+            "warranty": "保証"
+        },
+        "contactInfo": {
+            "title": "連絡先情報",
+            "phone": "+81-3-5555-1234",
+            "email": "info@tokyodevicehub.jp",
+            "address": "〒150-0002\n東京都渋谷区渋谷1-2-3"
+        },
+        "copyright": "© 2025 東京デバイスハブ. All rights reserved."
+    }
+}
