@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+
+# Uploads
+uploads/
+
+# Logs
+*.log
+logs/
+
+# Database
+*.sqlite
+*.db
