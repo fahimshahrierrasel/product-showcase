@@ -1,0 +1,880 @@
+'use strict';
+
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    // Note: Category IDs and User IDs are assumed based on seeder order
+    // Category IDs: 1=Laptops, 2=Smartphones, 3=Tablets, 4=Audio, 5=Smartwatches, 6=Cameras, 7=Gaming
+    // User ID: 1=Admin
+    
+    await queryInterface.bulkInsert('Products', [
+      // LAPTOPS (10 products)
+      {
+        sku: 'LAP-MBP-M3-001',
+        name: 'MacBook Pro 14-inch M3 Chip',
+        slug: 'macbook-pro-14-m3',
+        description: 'The most powerful MacBook Pro ever is here. With the blazing-fast M3, M3 Pro, and M3 Max chips, and up to 22 hours of battery life.',
+        price: 1599.00,
+        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca4?auto=format&fit=crop&q=80&w=2069',
+        specifications: JSON.stringify({
+          'Processor': 'Apple M3 Chip',
+          'RAM': '8GB Unified Memory',
+          'Storage': '512GB SSD',
+          'Display': '14.2" Liquid Retina XDR',
+          'Graphics': '10-core GPU',
+          'Battery Life': 'Up to 22 hours'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 1,
+        userId: 1,
+        isStockAvailable: true,
+        originalPrice: 1699.00,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'LAP-MBP-M3-002',
+        name: 'MacBook Pro 16-inch M3 Max',
+        slug: 'macbook-pro-16-m3-max',
+        description: 'Supercharged for pros. The most advanced chips. The most advanced displays. And now the longest battery life ever in a Mac.',
+        price: 2499.00,
+        image: 'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Apple M3 Max Chip',
+          'RAM': '36GB Unified Memory',
+          'Storage': '1TB SSD',
+          'Display': '16.2" Liquid Retina XDR',
+          'Graphics': '40-core GPU',
+          'Battery Life': 'Up to 22 hours'
+        }),
+        isFeatured: true,
+        isBestSeller: false,
+        isNewArrival: true,
+        categoryId: 1,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'LAP-DELL-XPS13-001',
+        name: 'Dell XPS 13 Plus',
+        slug: 'dell-xps-13-plus',
+        description: 'Our smallest and lightest 13-inch XPS laptop is built for a lifestyle on the move with stunning design and performance.',
+        price: 1299.00,
+        image: 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Intel Core i7-1360P',
+          'RAM': '16GB LPDDR5',
+          'Storage': '512GB SSD',
+          'Display': '13.4" FHD+',
+          'Graphics': 'Intel Iris Xe',
+          'Battery Life': 'Up to 12 hours'
+        }),
+        isFeatured: true,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 1,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'LAP-DELL-XPS15-001',
+        name: 'Dell XPS 15',
+        slug: 'dell-xps-15',
+        description: 'Exceptional performance meets stunning visuals. Perfect for creators and professionals.',
+        price: 1799.00,
+        image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Intel Core i7-13700H',
+          'RAM': '32GB DDR5',
+          'Storage': '1TB SSD',
+          'Display': '15.6" 4K OLED',
+          'Graphics': 'NVIDIA RTX 4050',
+          'Battery Life': 'Up to 13 hours'
+        }),
+        isFeatured: false,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 1,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'LAP-HP-SPEC-001',
+        name: 'HP Spectre x360 14',
+        slug: 'hp-spectre-x360-14',
+        description: 'Premium 2-in-1 laptop with stunning design and versatile performance.',
+        price: 1449.00,
+        image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=2071',
+        specifications: JSON.stringify({
+          'Processor': 'Intel Core i7-1355U',
+          'RAM': '16GB LPDDR4x',
+          'Storage': '512GB SSD',
+          'Display': '13.5" 3K2K OLED Touch',
+          'Graphics': 'Intel Iris Xe',
+          'Battery Life': 'Up to 16 hours'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 1,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'LAP-ASUS-ROG-001',
+        name: 'ASUS ROG Zephyrus G14',
+        slug: 'asus-rog-zephyrus-g14',
+        description: 'Compact gaming powerhouse with AMD Ryzen and NVIDIA RTX graphics.',
+        price: 1699.00,
+        image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=2068',
+        specifications: JSON.stringify({
+          'Processor': 'AMD Ryzen 9 7940HS',
+          'RAM': '32GB DDR5',
+          'Storage': '1TB SSD',
+          'Display': '14" QHD 165Hz',
+          'Graphics': 'NVIDIA RTX 4060',
+          'Battery Life': 'Up to 10 hours'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 1,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'LAP-LEN-X1-001',
+        name: 'Lenovo ThinkPad X1 Carbon Gen 11',
+        slug: 'lenovo-thinkpad-x1-carbon-gen11',
+        description: 'Business laptop perfected. Ultra-light, ultra-powerful, ultra-secure.',
+        price: 1899.00,
+        image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Intel Core i7-1365U',
+          'RAM': '32GB LPDDR5',
+          'Storage': '1TB SSD',
+          'Display': '14" 2.8K OLED',
+          'Graphics': 'Intel Iris Xe',
+          'Battery Life': 'Up to 19 hours'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 1,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'LAP-MSI-CREA-001',
+        name: 'MSI Creator Z16P',
+        slug: 'msi-creator-z16p',
+        description: 'Professional creator laptop with stunning display and powerful performance.',
+        price: 2199.00,
+        image: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=2064',
+        specifications: JSON.stringify({
+          'Processor': 'Intel Core i9-13900H',
+          'RAM': '64GB DDR5',
+          'Storage': '2TB SSD',
+          'Display': '16" 4K Mini LED',
+          'Graphics': 'NVIDIA RTX 4070',
+          'Battery Life': 'Up to 8 hours'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: true,
+        categoryId: 1,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'LAP-ACER-SWIFT-001',
+        name: 'Acer Swift 3',
+        slug: 'acer-swift-3',
+        description: 'Affordable performance laptop perfect for students and professionals.',
+        price: 799.00,
+        image: 'https://images.unsplash.com/photo-1484788984921-03950022c9ef?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'AMD Ryzen 7 5700U',
+          'RAM': '16GB DDR4',
+          'Storage': '512GB SSD',
+          'Display': '14" FHD IPS',
+          'Graphics': 'AMD Radeon',
+          'Battery Life': 'Up to 11 hours'
+        }),
+        isFeatured: false,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 1,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'LAP-SURF-LAP5-001',
+        name: 'Microsoft Surface Laptop 5',
+        slug: 'microsoft-surface-laptop-5',
+        description: 'Sleek, elegant design meets powerful performance in this premium laptop.',
+        price: 1299.00,
+        image: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Intel Core i7-1255U',
+          'RAM': '16GB LPDDR5x',
+          'Storage': '512GB SSD',
+          'Display': '13.5" PixelSense Touch',
+          'Graphics': 'Intel Iris Xe',
+          'Battery Life': 'Up to 18 hours'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 1,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      // SMARTPHONES (10 products)
+      {
+        sku: 'PHN-SAM-S24U-001',
+        name: 'Samsung Galaxy S24 Ultra',
+        slug: 'samsung-galaxy-s24-ultra',
+        description: 'Galaxy AI is here. Welcome to the era of mobile AI with the most powerful Galaxy smartphone ever.',
+        price: 1299.00,
+        image: 'https://images.unsplash.com/photo-1610945265078-38584e2690e0?auto=format&fit=crop&q=80&w=2068',
+        specifications: JSON.stringify({
+          'Processor': 'Snapdragon 8 Gen 3',
+          'RAM': '12GB',
+          'Storage': '256GB',
+          'Display': '6.8" QHD+ AMOLED 120Hz',
+          'Camera': '200MP Main + 50MP Telephoto',
+          'Battery': '5000mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: true,
+        categoryId: 2,
+        userId: 1,
+        isStockAvailable: true,
+        originalPrice: 1399.00,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'PHN-APP-IP15P-001',
+        name: 'iPhone 15 Pro Max',
+        slug: 'iphone-15-pro-max',
+        description: 'Titanium design. A17 Pro chip. Action button. All-new 48MP Main camera.',
+        price: 1199.00,
+        image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'A17 Pro',
+          'RAM': '8GB',
+          'Storage': '256GB',
+          'Display': '6.7" Super Retina XDR',
+          'Camera': '48MP Main + 12MP Telephoto',
+          'Battery': '4422mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: true,
+        categoryId: 2,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'PHN-GOO-PIX8P-001',
+        name: 'Google Pixel 8 Pro',
+        slug: 'google-pixel-8-pro',
+        description: 'The most helpful Pixel yet, with Google AI and the best Pixel camera.',
+        price: 999.00,
+        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=2027',
+        specifications: JSON.stringify({
+          'Processor': 'Google Tensor G3',
+          'RAM': '12GB',
+          'Storage': '128GB',
+          'Display': '6.7" LTPO OLED 120Hz',
+          'Camera': '50MP Main + 48MP Telephoto',
+          'Battery': '5050mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: true,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 2,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'PHN-ONE-12-001',
+        name: 'OnePlus 12',
+        slug: 'oneplus-12',
+        description: 'Fast and smooth. Premium flagship experience at an incredible value.',
+        price: 799.00,
+        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=2080',
+        specifications: JSON.stringify({
+          'Processor': 'Snapdragon 8 Gen 3',
+          'RAM': '16GB',
+          'Storage': '256GB',
+          'Display': '6.82" AMOLED 120Hz',
+          'Camera': '50MP Main + 64MP Telephoto',
+          'Battery': '5400mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: false,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 2,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'PHN-XIA-14U-001',
+        name: 'Xiaomi 14 Ultra',
+        slug: 'xiaomi-14-ultra',
+        description: 'Photography flagship with Leica optics and professional camera features.',
+        price: 1099.00,
+        image: 'https://images.unsplash.com/photo-1592286927505-b0501e6c0143?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Snapdragon 8 Gen 3',
+          'RAM': '16GB',
+          'Storage': '512GB',
+          'Display': '6.73" AMOLED 120Hz',
+          'Camera': '50MP Main Leica + 50MP Telephoto',
+          'Battery': '5000mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: true,
+        categoryId: 2,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'PHN-APP-IP15-001',
+        name: 'iPhone 15',
+        slug: 'iphone-15',
+        description: 'Dynamic Island. 48MP Main camera. USB-C. All in a durable color-infused glass design.',
+        price: 799.00,
+        image: 'https://images.unsplash.com/photo-1592286927505-b0501e6c0143?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'A16 Bionic',
+          'RAM': '6GB',
+          'Storage': '128GB',
+          'Display': '6.1" Super Retina XDR',
+          'Camera': '48MP Main + 12MP Ultra Wide',
+          'Battery': '3349mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: false,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 2,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'PHN-SAM-S24-001',
+        name: 'Samsung Galaxy S24',
+        slug: 'samsung-galaxy-s24',
+        description: 'Compact flagship with Galaxy AI and powerful performance.',
+        price: 799.00,
+        image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Exynos 2400',
+          'RAM': '8GB',
+          'Storage': '128GB',
+          'Display': '6.2" FHD+ AMOLED 120Hz',
+          'Camera': '50MP Main + 12MP Ultra Wide',
+          'Battery': '4000mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 2,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'PHN-GOO-PIX8-001',
+        name: 'Google Pixel 8',
+        slug: 'google-pixel-8',
+        description: 'Helpful AI features and amazing camera in a compact design.',
+        price: 699.00,
+        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=2027',
+        specifications: JSON.stringify({
+          'Processor': 'Google Tensor G3',
+          'RAM': '8GB',
+          'Storage': '128GB',
+          'Display': '6.2" OLED 120Hz',
+          'Camera': '50MP Main + 12MP Ultra Wide',
+          'Battery': '4575mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 2,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'PHN-MOT-EDGE-001',
+        name: 'Motorola Edge 40 Pro',
+        slug: 'motorola-edge-40-pro',
+        description: 'Premium performance with clean Android experience and fast charging.',
+        price: 599.00,
+        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=2080',
+        specifications: JSON.stringify({
+          'Processor': 'Snapdragon 8 Gen 2',
+          'RAM': '12GB',
+          'Storage': '256GB',
+          'Display': '6.67" OLED 165Hz',
+          'Camera': '50MP Main + 50MP Ultra Wide',
+          'Battery': '4600mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 2,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'PHN-ASUS-ROG8-001',
+        name: 'ASUS ROG Phone 8 Pro',
+        slug: 'asus-rog-phone-8-pro',
+        description: 'Ultimate gaming smartphone with advanced cooling and 165Hz display.',
+        price: 1199.00,
+        image: 'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Snapdragon 8 Gen 3',
+          'RAM': '24GB',
+          'Storage': '1TB',
+          'Display': '6.78" AMOLED 165Hz',
+          'Camera': '50MP Main + 13MP Ultra Wide',
+          'Battery': '5500mAh',
+          '5G': 'Yes'
+        }),
+        isFeatured: true,
+        isBestSeller: false,
+        isNewArrival: true,
+        categoryId: 2,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      // TABLETS (4 products)
+      {
+        sku: 'TAB-APP-IPADP-001',
+        name: 'iPad Pro 12.9-inch M2',
+        slug: 'ipad-pro-12-9-m2',
+        description: 'The ultimate iPad experience with M2 chip and Liquid Retina XDR display.',
+        price: 1099.00,
+        image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=2030',
+        specifications: JSON.stringify({
+          'Processor': 'Apple M2',
+          'Storage': '128GB',
+          'Display': '12.9" Liquid Retina XDR',
+          'Battery Life': 'Up to 10 hours',
+          'Stylus Support': 'Apple Pencil (2nd gen)'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 3,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'TAB-SAM-TABS9U-001',
+        name: 'Samsung Galaxy Tab S9 Ultra',
+        slug: 'samsung-galaxy-tab-s9-ultra',
+        description: 'Massive 14.6-inch display with S Pen included. Perfect for productivity and creativity.',
+        price: 1199.00,
+        image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Snapdragon 8 Gen 2',
+          'Storage': '256GB',
+          'Display': '14.6" AMOLED 120Hz',
+          'Battery Life': 'Up to 16 hours',
+          'Stylus Support': 'S Pen included'
+        }),
+        isFeatured: true,
+        isBestSeller: false,
+        isNewArrival: true,
+        categoryId: 3,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'TAB-APP-IPADAIR-001',
+        name: 'iPad Air M2',
+        slug: 'ipad-air-m2',
+        description: 'Serious performance in a thin and light design with M2 chip.',
+        price: 599.00,
+        image: 'https://images.unsplash.com/photo-1585790050230-5dd28404f869?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Apple M2',
+          'Storage': '128GB',
+          'Display': '10.9" Liquid Retina',
+          'Battery Life': 'Up to 10 hours',
+          'Stylus Support': 'Apple Pencil (2nd gen)'
+        }),
+        isFeatured: false,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 3,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'TAB-MIC-SURFP9-001',
+        name: 'Microsoft Surface Pro 9',
+        slug: 'microsoft-surface-pro-9',
+        description: 'Laptop versatility meets tablet portability with Windows 11.',
+        price: 999.00,
+        image: 'https://images.unsplash.com/photo-1587033411391-5d9e51cce126?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Processor': 'Intel Core i7-1255U',
+          'Storage': '256GB SSD',
+          'Display': '13" PixelSense Touch',
+          'Battery Life': 'Up to 15.5 hours',
+          'Stylus Support': 'Surface Pen (sold separately)'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 3,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      // AUDIO (5 products)
+      {
+        sku: 'AUD-APP-AIRPODSP-001',
+        name: 'AirPods Pro (2nd Gen)',
+        slug: 'airpods-pro-2nd-gen',
+        description: 'Rebuilt from the sound up with up to 2x more Active Noise Cancellation.',
+        price: 249.00,
+        image: 'https://images.unsplash.com/photo-1603351154351-5cf99bc32f2d?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Type': 'In-Ear',
+          'Connectivity': 'Bluetooth 5.3',
+          'Battery Life': 'Up to 6 hours',
+          'Noise Cancellation': 'Active Noise Cancellation',
+          'Driver Size': 'Custom'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 4,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'AUD-SON-WH1000XM5-001',
+        name: 'Sony WH-1000XM5',
+        slug: 'sony-wh-1000xm5',
+        description: 'Industry-leading noise cancellation with two processors controlling 8 microphones.',
+        price: 398.00,
+        image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=1976',
+        specifications: JSON.stringify({
+          'Type': 'Over-Ear',
+          'Connectivity': 'Bluetooth 5.2',
+          'Battery Life': 'Up to 30 hours',
+          'Noise Cancellation': 'Industry-leading ANC',
+          'Driver Size': '30mm'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 4,
+        userId: 1,
+        isStockAvailable: false,
+        originalPrice: 449.00,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'AUD-BOSE-QC45-001',
+        name: 'Bose QuietComfort 45',
+        slug: 'bose-quietcomfort-45',
+        description: 'Legendary noise cancellation and premium comfort for all-day listening.',
+        price: 329.00,
+        image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&q=80&w=2065',
+        specifications: JSON.stringify({
+          'Type': 'Over-Ear',
+          'Connectivity': 'Bluetooth 5.1',
+          'Battery Life': 'Up to 24 hours',
+          'Noise Cancellation': 'Active Noise Cancellation',
+          'Driver Size': '40mm'
+        }),
+        isFeatured: false,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 4,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'AUD-SAM-BUDS2P-001',
+        name: 'Samsung Galaxy Buds2 Pro',
+        slug: 'samsung-galaxy-buds2-pro',
+        description: 'Premium sound with intelligent ANC and 360 Audio.',
+        price: 229.00,
+        image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Type': 'In-Ear',
+          'Connectivity': 'Bluetooth 5.3',
+          'Battery Life': 'Up to 8 hours',
+          'Noise Cancellation': 'Intelligent ANC',
+          'Driver Size': '10mm'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 4,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'AUD-JBL-LIVE660NC-001',
+        name: 'JBL Live 660NC',
+        slug: 'jbl-live-660nc',
+        description: 'Wireless over-ear headphones with adaptive noise cancelling and JBL Signature Sound.',
+        price: 149.00,
+        image: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Type': 'Over-Ear',
+          'Connectivity': 'Bluetooth 5.0',
+          'Battery Life': 'Up to 50 hours',
+          'Noise Cancellation': 'Adaptive ANC',
+          'Driver Size': '40mm'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 4,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      // SMARTWATCHES (3 products)
+      {
+        sku: 'WAT-APP-AWS9-001',
+        name: 'Apple Watch Series 9',
+        slug: 'apple-watch-series-9',
+        description: 'Smarter. Brighter. Mightier. The most powerful chip in Apple Watch ever.',
+        price: 399.00,
+        image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&q=80&w=2071',
+        specifications: JSON.stringify({
+          'Display': 'Always-On Retina LTPO OLED',
+          'Battery Life': 'Up to 18 hours',
+          'Sensors': 'Blood Oxygen, ECG, Temperature',
+          'Water Resistance': 'WR50 (50m)',
+          'GPS': 'Dual-frequency GPS'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 5,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'WAT-SAM-GW6C-001',
+        name: 'Samsung Galaxy Watch 6 Classic',
+        slug: 'samsung-galaxy-watch-6-classic',
+        description: 'Premium smartwatch with rotating bezel and advanced health tracking.',
+        price: 399.00,
+        image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&q=80&w=2072',
+        specifications: JSON.stringify({
+          'Display': '1.5" Super AMOLED',
+          'Battery Life': 'Up to 40 hours',
+          'Sensors': 'BioActive Sensor, Temperature',
+          'Water Resistance': '5ATM + IP68',
+          'GPS': 'GPS/GLONASS/Galileo'
+        }),
+        isFeatured: false,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 5,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'WAT-GAR-FEN7-001',
+        name: 'Garmin Fenix 7',
+        slug: 'garmin-fenix-7',
+        description: 'Multisport GPS smartwatch with advanced training features and solar charging.',
+        price: 699.00,
+        image: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&q=80&w=2127',
+        specifications: JSON.stringify({
+          'Display': '1.3" Transflective MIP',
+          'Battery Life': 'Up to 18 days',
+          'Sensors': 'Heart Rate, Pulse Ox, Altimeter',
+          'Water Resistance': '10ATM',
+          'GPS': 'Multi-GNSS'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: false,
+        categoryId: 5,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      // CAMERAS (3 products)
+      {
+        sku: 'CAM-SON-A7IV-001',
+        name: 'Sony Alpha a7 IV',
+        slug: 'sony-alpha-a7-iv',
+        description: 'Hybrid full-frame mirrorless camera perfect for both photo and video.',
+        price: 2498.00,
+        image: 'https://images.unsplash.com/photo-1606980707986-683d8dc3e0c7?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Sensor': 'Full-Frame CMOS',
+          'Megapixels': '33MP',
+          'Video Resolution': '4K 60fps',
+          'Lens Mount': 'Sony E-mount',
+          'ISO Range': '100-51200'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 6,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'CAM-CAN-R6II-001',
+        name: 'Canon EOS R6 Mark II',
+        slug: 'canon-eos-r6-mark-ii',
+        description: 'High-speed full-frame mirrorless camera with advanced autofocus.',
+        price: 2499.00,
+        image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Sensor': 'Full-Frame CMOS',
+          'Megapixels': '24.2MP',
+          'Video Resolution': '4K 60fps',
+          'Lens Mount': 'Canon RF',
+          'ISO Range': '100-102400'
+        }),
+        isFeatured: false,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 6,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'CAM-FUJ-XT5-001',
+        name: 'Fujifilm X-T5',
+        slug: 'fujifilm-x-t5',
+        description: 'Retro-styled APS-C mirrorless camera with 40MP sensor and film simulations.',
+        price: 1699.00,
+        image: 'https://images.unsplash.com/photo-1606980707986-683d8dc3e0c7?auto=format&fit=crop&q=80&w=2070',
+        specifications: JSON.stringify({
+          'Sensor': 'APS-C X-Trans CMOS 5 HR',
+          'Megapixels': '40.2MP',
+          'Video Resolution': '6.2K 30fps',
+          'Lens Mount': 'Fujifilm X',
+          'ISO Range': '125-12800'
+        }),
+        isFeatured: false,
+        isBestSeller: false,
+        isNewArrival: true,
+        categoryId: 6,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+
+      // GAMING (2 products)
+      {
+        sku: 'GAM-SON-PS5-001',
+        name: 'PlayStation 5',
+        slug: 'playstation-5',
+        description: 'Experience lightning-fast loading with an ultra-high speed SSD and stunning games.',
+        price: 499.00,
+        image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&q=80&w=2072',
+        specifications: JSON.stringify({
+          'Platform': 'PlayStation 5',
+          'Storage': '825GB SSD',
+          'Resolution': 'Up to 8K',
+          'Frame Rate': 'Up to 120fps',
+          'Controllers': 'DualSense Wireless'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 7,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        sku: 'GAM-MIC-XBSX-001',
+        name: 'Xbox Series X',
+        slug: 'xbox-series-x',
+        description: 'The fastest, most powerful Xbox ever with 12 teraflops of processing power.',
+        price: 499.00,
+        image: 'https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&q=80&w=2032',
+        specifications: JSON.stringify({
+          'Platform': 'Xbox Series X',
+          'Storage': '1TB SSD',
+          'Resolution': 'Up to 8K',
+          'Frame Rate': 'Up to 120fps',
+          'Controllers': 'Xbox Wireless Controller'
+        }),
+        isFeatured: true,
+        isBestSeller: true,
+        isNewArrival: false,
+        categoryId: 7,
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ], {});
+  },
+
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Products', null, {});
+  }
+};
