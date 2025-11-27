@@ -3,6 +3,7 @@ import { ProductGallery } from '@/components/product/ProductGallery';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/ProductCard';
 import { Star, Heart, Mail, Phone, Check } from 'lucide-react';
+import { getTranslations } from 'next-intl/server';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -12,6 +13,7 @@ export default async function ProductPage({ params }: PageProps) {
   const { id } = await params;
   const product = await api.getProduct(id);
   const similarProducts = await api.getProducts({ category: product.categoryId?.toString() });
+  const t = await getTranslations('productDetails');
 
   // Filter out current product from similar products
   const relatedProducts = similarProducts.filter(p => p.id !== product.id).slice(0, 4);
@@ -20,7 +22,7 @@ export default async function ProductPage({ params }: PageProps) {
     <div className="container mx-auto py-10 px-4">
       {/* Breadcrumb */}
       <div className="text-sm text-gray-500 mb-8">
-        Home {'>'} Products {'>'} <span className="text-black font-medium">{product.name}</span>
+        {t('home')} {'>'} {t('products')} {'>'} <span className="text-black font-medium">{product.name}</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
@@ -41,7 +43,7 @@ export default async function ProductPage({ params }: PageProps) {
                 <Star key={star} className="w-4 h-4 fill-current" />
               ))}
             </div>
-            <span className="text-sm text-gray-500">(128 reviews)</span>
+            <span className="text-sm text-gray-500">({t('reviews', { count: 128 })})</span>
           </div>
 
           <div className="flex items-center gap-4 mb-6">
@@ -50,7 +52,7 @@ export default async function ProductPage({ params }: PageProps) {
                <span className="text-lg text-gray-400 line-through">${(product.price * 1.2).toFixed(2)}</span>
             )}
             {product.price > 1000 && (
-               <span className="bg-black text-white text-xs px-2 py-1 rounded">20% OFF</span>
+               <span className="bg-black text-white text-xs px-2 py-1 rounded">{t('off', { percent: 20 })}</span>
             )}
           </div>
 
@@ -61,7 +63,7 @@ export default async function ProductPage({ params }: PageProps) {
           {/* Key Specs Preview */}
           {product.specifications && (
             <div className="mb-8">
-              <h3 className="font-semibold mb-4">Key Specifications</h3>
+              <h3 className="font-semibold mb-4">{t('specifications')}</h3>
               <div className="grid grid-cols-2 gap-y-2 text-sm">
                 {Object.entries(product.specifications).slice(0, 4).map(([key, value]) => (
                   <div key={key} className="flex justify-between border-b pb-2">
@@ -75,24 +77,24 @@ export default async function ProductPage({ params }: PageProps) {
 
           {/* Actions */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Contact for Booking</h3>
+            <h3 className="font-semibold">{t('contactBooking')}</h3>
             <Button className="w-full bg-black text-white hover:bg-gray-800 h-12 text-lg">
               <Phone className="w-4 h-4 mr-2" />
-              Call: +1 (555) 123-4567
+              {t('call', { number: '+1 (555) 123-4567' })}
             </Button>
             <Button variant="outline" className="w-full h-12">
               <Mail className="w-4 h-4 mr-2" />
-              Email: sales@techstore.com
+              {t('email', { email: 'sales@techstore.com' })}
             </Button>
             <Button variant="ghost" className="w-full">
               <Heart className="w-4 h-4 mr-2" />
-              Add to Wishlist
+              {t('addToWishlist')}
             </Button>
           </div>
           
           {/* Tags */}
           <div className="mt-8 flex gap-2">
-            <span className="text-sm text-gray-500">Tags:</span>
+            <span className="text-sm text-gray-500">{t('tags')}</span>
             <div className="flex gap-2">
                <span className="bg-gray-100 text-xs px-2 py-1 rounded text-gray-600">Tech</span>
                <span className="bg-gray-100 text-xs px-2 py-1 rounded text-gray-600">Electronics</span>
@@ -103,7 +105,7 @@ export default async function ProductPage({ params }: PageProps) {
 
       {/* Customer Reviews (Static) */}
       <div className="mb-16">
-        <h2 className="text-2xl font-bold mb-8">Customer Reviews</h2>
+        <h2 className="text-2xl font-bold mb-8">{t('customerReviews')}</h2>
         <div className="bg-gray-50 p-8 rounded-lg">
            <div className="flex items-center gap-4 mb-8">
               <div className="text-5xl font-bold">4.8</div>
@@ -113,7 +115,7 @@ export default async function ProductPage({ params }: PageProps) {
                       <Star key={star} className="w-5 h-5 fill-current" />
                     ))}
                  </div>
-                 <p className="text-sm text-gray-500">Based on 128 reviews</p>
+                 <p className="text-sm text-gray-500">{t('basedOn', { count: 128 })}</p>
               </div>
            </div>
            
@@ -138,7 +140,7 @@ export default async function ProductPage({ params }: PageProps) {
 
       {/* Similar Products */}
       <div>
-        <h2 className="text-2xl font-bold mb-8">Similar Products</h2>
+        <h2 className="text-2xl font-bold mb-8">{t('similarProducts')}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {relatedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />

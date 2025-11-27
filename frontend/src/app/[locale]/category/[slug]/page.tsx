@@ -3,22 +3,21 @@ import { ProductCard } from '@/components/ProductCard';
 import { FilterSidebar } from '@/components/product/FilterSidebar';
 import { SortDropdown } from '@/components/product/SortDropdown';
 import { notFound } from 'next/navigation';
-
-// Map categories for sidebar
-const categories = [
-  { name: 'Laptops', slug: 'laptops' },
-  { name: 'Smartphones', slug: 'smartphones' },
-  { name: 'Tablets', slug: 'tablets' },
-  { name: 'Smartwatches', slug: 'smartwatches' },
-  { name: 'Audio', slug: 'audio' },
-  { name: 'Cameras', slug: 'cameras' },
-  { name: 'Gaming', slug: 'gaming' },
-  { name: 'Accessories', slug: 'accessories' },
-];
+import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const categoryName = categories.find(c => c.slug === slug)?.name || slug;
+  const tNav = await getTranslations('header.nav');
+  // Helper to get translated name
+  const getCategoryName = (slug: string) => {
+    try {
+      // @ts-ignore
+      return tNav(slug);
+    } catch {
+      return slug;
+    }
+  };
+  const categoryName = getCategoryName(slug);
   return {
     title: `${categoryName} | TechStore`,
     description: `Browse our collection of ${categoryName}.`,
@@ -34,11 +33,21 @@ export default async function CategoryPage({
 }) {
   const { slug } = await params;
   const searchParamsValues = await searchParams;
+  const t = await getTranslations('products');
+  const tNav = await getTranslations('header.nav');
+  const tFilters = await getTranslations('filters');
+
+  // Map categories for sidebar
+  const categories = [
+    { name: tNav('laptops'), slug: 'laptops' },
+    { name: tNav('smartphones'), slug: 'smartphones' },
+    { name: tNav('tablets'), slug: 'tablets' },
+    { name: tNav('smartwatches'), slug: 'smartwatches' },
+    { name: tNav('audio'), slug: 'audio' },
+    { name: tNav('accessories'), slug: 'accessories' },
+  ];
 
   const category = categories.find(c => c.slug === slug);
-  
-  // Ideally we should check if category exists via API, but for now we use the static list
-  // or just fetch products and see if any return (or if API throws error)
   
   const products = await api.getProducts({
     category: slug,
@@ -55,8 +64,8 @@ export default async function CategoryPage({
         {/* Sidebar */}
         <aside className="w-full md:w-64 flex-shrink-0">
           <div className="bg-white p-6 rounded-lg shadow-sm sticky top-24">
-            <h2 className="text-xl font-bold mb-6">Filters</h2>
-            <FilterSidebar categories={categories} currentCategory={slug} />
+            <h2 className="text-xl font-bold mb-6">{tFilters('title')}</h2>
+            <FilterSidebar />
           </div>
         </aside>
 
@@ -69,7 +78,7 @@ export default async function CategoryPage({
 
           {products.length === 0 ? (
             <div className="text-center py-12 bg-gray-50 rounded-lg">
-              <p className="text-xl text-gray-600">No products found in this category.</p>
+              <p className="text-xl text-gray-600">{t('notFound')}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

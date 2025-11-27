@@ -51,10 +51,88 @@
             }
         }
     },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Get in touch with our team for product inquiries, bookings, or any questions about our electronics collection.",
+        "form": {
+            "title": "Send us a Message",
+            "fullName": "Full Name",
+            "fullNamePlaceholder": "Enter your full name",
+            "email": "Email Address",
+            "emailPlaceholder": "Enter your email",
+            "phone": "Phone Number",
+            "phonePlaceholder": "Enter your phone number",
+            "subject": "Subject",
+            "message": "Message",
+            "messagePlaceholder": "Tell us about your inquiry...",
+            "submit": "Send Message",
+            "subjects": {
+                "productInquiry": "Product Inquiry",
+                "bookingRequest": "Booking Request",
+                "support": "Support",
+                "other": "Other"
+            }
+        },
+        "info": {
+            "title": "Get in Touch",
+            "phone": "Phone",
+            "email": "Email",
+            "hours": "Business Hours",
+            "hoursMonFri": "Mon - Fri: 9:00 AM - 7:00 PM",
+            "hoursSatSun": "Sat - Sun: 10:00 AM - 6:00 PM"
+        },
+        "locations": {
+            "title": "Store Locations",
+            "downtown": "Downtown Store",
+            "mall": "Mall Location"
+        }
+    },
     "products": {
+        "title": "All Products",
+        "notFound": "No products found matching your criteria.",
         "viewDetails": "View Details",
         "outOfStock": "Out of Stock",
         "price": "Price"
+    },
+    "productDetails": {
+        "home": "Home",
+        "products": "Products",
+        "reviews": "{count} reviews",
+        "off": "{percent}% OFF",
+        "specifications": "Key Specifications",
+        "contactBooking": "Contact for Booking",
+        "call": "Call: {number}",
+        "email": "Email: {email}",
+        "addToWishlist": "Add to Wishlist",
+        "tags": "Tags:",
+        "customerReviews": "Customer Reviews",
+        "basedOn": "Based on {count} reviews",
+        "similarProducts": "Similar Products"
+    },
+    "filters": {
+        "title": "Filters",
+        "categories": "Categories",
+        "allProducts": "All Products",
+        "priceRange": "Price Range",
+        "min": "Min",
+        "max": "Max",
+        "availability": "Availability",
+        "inStockOnly": "In Stock Only",
+        "apply": "Apply Filters",
+        "clear": "Clear Filters"
+    },
+    "sort": {
+        "placeholder": "Sort by",
+        "newest": "Newest Arrivals",
+        "priceLowHigh": "Price: Low to High",
+        "priceHighLow": "Price: High to Low",
+        "nameAZ": "Name: A to Z"
+    },
+    "admin": {
+        "title": "Admin Dashboard",
+        "metadata": {
+            "title": "Admin Dashboard - Product Management"
+        }
     },
     "footer": {
         "brand": "Tokyo Device Hub",

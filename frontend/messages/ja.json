@@ -1,6 +1,6 @@
 {
     "header": {
-        "logo": "東京デバイスハブ",
+        "logo": "Tokyo Device Hub",
         "nav": {
             "laptops": "ノートパソコン",
             "smartphones": "スマートフォン",
@@ -14,20 +14,20 @@
     },
     "home": {
         "hero": {
-            "title": "東京デバイスハブへようこそ",
-            "subtitle": "東京のプレミアム電子機器の最高の目的地"
+            "title": "Tokyo Device Hubへようこそ",
+            "subtitle": "東京で最高のプレミアムエレクトロニクスをお届けします"
         },
         "offers": {
-            "title": "お得なオファー",
+            "title": "エキサイティングなオファー",
             "limitedTime": "期間限定",
             "exclusive": "限定",
             "bestSeller": "ベストセラー",
             "bookNow": "今すぐ予約"
         },
         "featured": {
-            "title": "おすすめ商品",
+            "title": "注目商品",
             "all": "すべて",
-            "newArrivals": "新着",
+            "newArrivals": "新着商品",
             "bestSellers": "ベストセラー",
             "viewAll": "すべての商品を見る"
         },
@@ -45,20 +45,98 @@
                 "response": "24時間以内に返信"
             },
             "visit": {
-                "title": "店舗訪問",
-                "action": "道順を見る",
-                "description": "実際に商品をご覧ください"
+                "title": "店舗に来店",
+                "action": "アクセス",
+                "description": "実際に製品をご覧ください"
             }
         }
     },
+    "contact": {
+        "title": "お問い合わせ",
+        "subtitle": "製品に関するお問い合わせ、ご予約、その他ご質問がございましたら、お気軽にご連絡ください。",
+        "form": {
+            "title": "メッセージを送る",
+            "fullName": "お名前",
+            "fullNamePlaceholder": "お名前を入力してください",
+            "email": "メールアドレス",
+            "emailPlaceholder": "メールアドレスを入力してください",
+            "phone": "電話番号",
+            "phonePlaceholder": "電話番号を入力してください",
+            "subject": "件名",
+            "message": "メッセージ",
+            "messagePlaceholder": "お問い合わせ内容を入力してください...",
+            "submit": "送信する",
+            "subjects": {
+                "productInquiry": "製品について",
+                "bookingRequest": "予約リクエスト",
+                "support": "サポート",
+                "other": "その他"
+            }
+        },
+        "info": {
+            "title": "連絡先",
+            "phone": "電話",
+            "email": "メール",
+            "hours": "営業時間",
+            "hoursMonFri": "月〜金: 9:00 AM - 7:00 PM",
+            "hoursSatSun": "土〜日: 10:00 AM - 6:00 PM"
+        },
+        "locations": {
+            "title": "店舗情報",
+            "downtown": "ダウンタウン店",
+            "mall": "モール店"
+        }
+    },
     "products": {
+        "title": "全商品",
+        "notFound": "条件に一致する商品は見つかりませんでした。",
         "viewDetails": "詳細を見る",
         "outOfStock": "在庫切れ",
         "price": "価格"
     },
+    "productDetails": {
+        "home": "ホーム",
+        "products": "商品",
+        "reviews": "{count} 件のレビュー",
+        "off": "{percent}% OFF",
+        "specifications": "主な仕様",
+        "contactBooking": "予約の問い合わせ",
+        "call": "電話: {number}",
+        "email": "メール: {email}",
+        "addToWishlist": "ウィッシュリストに追加",
+        "tags": "タグ:",
+        "customerReviews": "カスタマーレビュー",
+        "basedOn": "{count} 件のレビューに基づく",
+        "similarProducts": "類似商品"
+    },
+    "filters": {
+        "title": "フィルター",
+        "categories": "カテゴリー",
+        "allProducts": "全商品",
+        "priceRange": "価格帯",
+        "min": "最小",
+        "max": "最大",
+        "availability": "在庫状況",
+        "inStockOnly": "在庫ありのみ",
+        "apply": "フィルターを適用",
+        "clear": "クリア"
+    },
+    "sort": {
+        "placeholder": "並び替え",
+        "newest": "新着順",
+        "priceLowHigh": "価格の安い順",
+        "priceHighLow": "価格の高い順",
+        "nameAZ": "名前順 (A-Z)"
+    },
+    "admin": {
+        "title": "管理ダッシュボード",
+        "metadata": {
+            "title": "管理ダッシュボード - 商品管理"
+        }
+    },
     "footer": {
-        "brand": "東京デバイスハブ",
-        "description": "東京で最新の電子機器とテクノロジーデバイスを提供する最高の目的地。私たちは未来を今日お届けします。",
+        "brand": "Tokyo Device Hub",
+        "description": "東京で最新のエレクトロニクスとテクノロジーデバイスを提供する最高の場所。未来を今日お届けします。",
         "categories": {
             "title": "カテゴリー",
             "laptops": "ノートパソコン",
@@ -80,8 +158,8 @@
             "title": "連絡先情報",
             "phone": "+81-3-5555-1234",
             "email": "info@tokyodevicehub.jp",
-            "address": "〒150-0002\n東京都渋谷区渋谷1-2-3"
+            "address": "〒150-0002 東京都渋谷区渋谷1-2-3"
         },
-        "copyright": "© 2025 東京デバイスハブ. All rights reserved."
+        "copyright": "© 2025 Tokyo Device Hub. All rights reserved."
     }
 }

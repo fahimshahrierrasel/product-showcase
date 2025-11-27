@@ -7,15 +7,14 @@ import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
-interface FilterSidebarProps {
-  categories?: { name: string; slug: string }[];
-  currentCategory?: string;
-}
 
-export function FilterSidebar({ categories = [], currentCategory }: FilterSidebarProps) {
+
+export function FilterSidebar() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const t = useTranslations('filters');
   
   const [minPrice, setMinPrice] = useState(searchParams.get('minPrice') || '');
   const [maxPrice, setMaxPrice] = useState(searchParams.get('maxPrice') || '');
@@ -39,9 +38,6 @@ export function FilterSidebar({ categories = [], currentCategory }: FilterSideba
     if (isStockAvailable) params.set('isStockAvailable', 'true');
     else params.delete('isStockAvailable');
 
-    // Reset page if pagination is implemented (not yet)
-    // params.set('page', '1');
-
     router.push(`?${params.toString()}`);
   };
 
@@ -55,33 +51,14 @@ export function FilterSidebar({ categories = [], currentCategory }: FilterSideba
 
   return (
     <div className="space-y-6">
-      <div>
-        <h3 className="font-semibold mb-4">Categories</h3>
-        <div className="space-y-2">
-          <Link 
-            href="/products" 
-            className={`block text-sm ${!currentCategory ? 'font-bold text-primary' : 'text-muted-foreground hover:text-foreground'}`}
-          >
-            All Products
-          </Link>
-          {categories.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={`/category/${cat.slug}`}
-              className={`block text-sm ${currentCategory === cat.slug ? 'font-bold text-primary' : 'text-muted-foreground hover:text-foreground'}`}
-            >
-              {cat.name}
-            </Link>
-          ))}
-        </div>
-      </div>
+      {/* Categories section removed */}
 
       <div>
-        <h3 className="font-semibold mb-4">Price Range</h3>
+        <h3 className="font-semibold mb-4">{t('priceRange')}</h3>
         <div className="flex items-center gap-2 mb-4">
           <Input 
             type="number" 
-            placeholder="Min" 
+            placeholder={t('min')} 
             value={minPrice} 
             onChange={(e) => setMinPrice(e.target.value)}
             className="w-20"
@@ -89,7 +66,7 @@ export function FilterSidebar({ categories = [], currentCategory }: FilterSideba
           <span>-</span>
           <Input 
             type="number" 
-            placeholder="Max" 
+            placeholder={t('max')} 
             value={maxPrice} 
             onChange={(e) => setMaxPrice(e.target.value)}
             className="w-20"
@@ -98,20 +75,20 @@ export function FilterSidebar({ categories = [], currentCategory }: FilterSideba
       </div>
 
       <div>
-        <h3 className="font-semibold mb-4">Availability</h3>
+        <h3 className="font-semibold mb-4">{t('availability')}</h3>
         <div className="flex items-center space-x-2">
           <Checkbox 
             id="stock" 
             checked={isStockAvailable} 
             onCheckedChange={(checked) => setIsStockAvailable(checked as boolean)}
           />
-          <Label htmlFor="stock">In Stock Only</Label>
+          <Label htmlFor="stock">{t('inStockOnly')}</Label>
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <Button onClick={applyFilters} className="w-full">Apply Filters</Button>
-        <Button variant="outline" onClick={clearFilters} className="w-full">Clear Filters</Button>
+        <Button onClick={applyFilters} className="w-full">{t('apply')}</Button>
+        <Button variant="outline" onClick={clearFilters} className="w-full">{t('clear')}</Button>
       </div>
     </div>
   );

@@ -8,11 +8,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useTranslations } from 'next-intl';
 
 export function SortDropdown() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentSort = searchParams.get('sort') || 'newest';
+  const t = useTranslations('sort');
 
   const handleSortChange = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -23,13 +25,13 @@ export function SortDropdown() {
   return (
     <Select value={currentSort} onValueChange={handleSortChange}>
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Sort by" />
+        <SelectValue placeholder={t('placeholder')} />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="newest">Newest Arrivals</SelectItem>
-        <SelectItem value="price_asc">Price: Low to High</SelectItem>
-        <SelectItem value="price_desc">Price: High to Low</SelectItem>
-        <SelectItem value="name_asc">Name: A to Z</SelectItem>
+        <SelectItem value="newest">{t('newest')}</SelectItem>
+        <SelectItem value="price_asc">{t('priceLowHigh')}</SelectItem>
+        <SelectItem value="price_desc">{t('priceHighLow')}</SelectItem>
+        <SelectItem value="name_asc">{t('nameAZ')}</SelectItem>
       </SelectContent>
     </Select>
   );
