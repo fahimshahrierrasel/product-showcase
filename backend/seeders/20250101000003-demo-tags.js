@@ -4,21 +4,21 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Tags', [
-      { name: 'Premium', slug: 'premium', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Best Seller', slug: 'best-seller', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'New Arrival', slug: 'new-arrival', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Sale', slug: 'sale', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Featured', slug: 'featured', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Wireless', slug: 'wireless', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Portable', slug: 'portable', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Professional', slug: 'professional', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Gaming', slug: 'gaming', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Budget', slug: 'budget', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Flagship', slug: 'flagship', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Eco-Friendly', slug: 'eco-friendly', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Compact', slug: 'compact', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'High-End', slug: 'high-end', createdAt: new Date(), updatedAt: new Date() },
-      { name: 'Value', slug: 'value', createdAt: new Date(), updatedAt: new Date() }
+      { id: 1, name: 'Premium', slug: 'premium', createdAt: new Date(), updatedAt: new Date() },
+      { id: 2, name: 'Best Seller', slug: 'best-seller', createdAt: new Date(), updatedAt: new Date() },
+      { id: 3, name: 'New Arrival', slug: 'new-arrival', createdAt: new Date(), updatedAt: new Date() },
+      { id: 4, name: 'Sale', slug: 'sale', createdAt: new Date(), updatedAt: new Date() },
+      { id: 5, name: 'Featured', slug: 'featured', createdAt: new Date(), updatedAt: new Date() },
+      { id: 6, name: 'Wireless', slug: 'wireless', createdAt: new Date(), updatedAt: new Date() },
+      { id: 7, name: 'Portable', slug: 'portable', createdAt: new Date(), updatedAt: new Date() },
+      { id: 8, name: 'Professional', slug: 'professional', createdAt: new Date(), updatedAt: new Date() },
+      { id: 9, name: 'Gaming', slug: 'gaming', createdAt: new Date(), updatedAt: new Date() },
+      { id: 10, name: 'Budget', slug: 'budget', createdAt: new Date(), updatedAt: new Date() },
+      { id: 11, name: 'Flagship', slug: 'flagship', createdAt: new Date(), updatedAt: new Date() },
+      { id: 12, name: 'Eco-Friendly', slug: 'eco-friendly', createdAt: new Date(), updatedAt: new Date() },
+      { id: 13, name: 'Compact', slug: 'compact', createdAt: new Date(), updatedAt: new Date() },
+      { id: 14, name: 'High-End', slug: 'high-end', createdAt: new Date(), updatedAt: new Date() },
+      { id: 15, name: 'Value', slug: 'value', createdAt: new Date(), updatedAt: new Date() }
     ], {});
   },
 

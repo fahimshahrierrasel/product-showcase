@@ -5,9 +5,10 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('HeroSlides', [
       {
+        id: 1,
         title: 'iPhone 15 Pro Max',
         subtitle: 'Titanium. So strong. So light. So Pro.',
-        imageUrl: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=2070',
+        imageUrl: 'https://picsum.photos/seed/a1b2c3_hero/1920/1080.webp',
         ctaText: 'Shop Now',
         ctaLink: '/products/iphone-15-pro-max',
         order: 1,
@@ -16,9 +17,10 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 2,
         title: 'MacBook Pro M3',
         subtitle: 'Mind-blowing. Head-turning. The most powerful MacBook Pro ever.',
-        imageUrl: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca4?auto=format&fit=crop&q=80&w=2069',
+        imageUrl: 'https://picsum.photos/seed/x9y8z7_hero/1920/1080.webp',
         ctaText: 'Learn More',
         ctaLink: '/products/macbook-pro-14-m3',
         order: 2,
@@ -27,9 +29,10 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 3,
         title: 'Samsung Galaxy S24 Ultra',
         subtitle: 'Welcome to the era of mobile AI. Galaxy AI is here.',
-        imageUrl: 'https://images.unsplash.com/photo-1610945265078-38584e2690e0?auto=format&fit=crop&q=80&w=2068',
+        imageUrl: 'https://picsum.photos/seed/q1w2e3_hero/1920/1080.webp',
         ctaText: 'Discover',
         ctaLink: '/products/samsung-galaxy-s24-ultra',
         order: 3,
@@ -38,9 +41,10 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 4,
         title: 'Sony WH-1000XM5',
         subtitle: 'Industry-leading noise cancellation. Premium sound quality.',
-        imageUrl: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=1976',
+        imageUrl: 'https://picsum.photos/seed/r4t5y6_hero/1920/1080.webp',
         ctaText: 'Experience Audio',
         ctaLink: '/products/sony-wh-1000xm5',
         order: 4,
@@ -49,9 +53,10 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 5,
         title: 'PlayStation 5',
         subtitle: 'Play Has No Limits. Experience lightning-fast loading.',
-        imageUrl: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&q=80&w=2072',
+        imageUrl: 'https://picsum.photos/seed/u7i8o9_hero/1920/1080.webp',
         ctaText: 'Start Gaming',
         ctaLink: '/products/playstation-5',
         order: 5,

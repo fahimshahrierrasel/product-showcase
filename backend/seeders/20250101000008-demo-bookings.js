@@ -5,6 +5,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Bookings', [
       {
+        id: 1,
         productSku: 'LAP-MBP-M3-001',
         customerName: 'John Smith',
         customerEmail: 'john.smith@example.com',
@@ -15,6 +16,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 2,
         productSku: 'PHN-SAM-S24U-001',
         customerName: 'Sarah Johnson',
         customerEmail: 'sarah.j@example.com',
@@ -25,6 +27,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 3,
         productSku: 'PHN-APP-IP15P-001',
         customerName: 'Michael Chen',
         customerEmail: 'mchen@example.com',
@@ -35,6 +38,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 4,
         productSku: 'AUD-SON-WH1000XM5-001',
         customerName: 'Emily Davis',
         customerEmail: 'emily.davis@example.com',
@@ -45,6 +49,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 5,
         productSku: 'TAB-APP-IPADP-001',
         customerName: 'David Wilson',
         customerEmail: 'dwilson@example.com',
@@ -55,6 +60,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 6,
         productSku: 'GAM-SON-PS5-001',
         customerName: 'Jessica Martinez',
         customerEmail: 'jmartinez@example.com',
@@ -65,6 +71,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 7,
         productSku: 'LAP-ASUS-ROG-001',
         customerName: 'Robert Taylor',
         customerEmail: 'rtaylor@example.com',
@@ -75,6 +82,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 8,
         productSku: 'WAT-APP-AWS9-001',
         customerName: 'Amanda Brown',
         customerEmail: 'abrown@example.com',

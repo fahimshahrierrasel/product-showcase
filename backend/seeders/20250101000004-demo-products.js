@@ -6,16 +6,17 @@ module.exports = {
     // Note: Category IDs and User IDs are assumed based on seeder order
     // Category IDs: 1=Laptops, 2=Smartphones, 3=Tablets, 4=Audio, 5=Smartwatches, 6=Cameras, 7=Gaming
     // User ID: 1=Admin
-    
+
     await queryInterface.bulkInsert('Products', [
       // LAPTOPS (10 products)
       {
+        id: 1,
         sku: 'LAP-MBP-M3-001',
         name: 'MacBook Pro 14-inch M3 Chip',
         slug: 'macbook-pro-14-m3',
         description: 'The most powerful MacBook Pro ever is here. With the blazing-fast M3, M3 Pro, and M3 Max chips, and up to 22 hours of battery life.',
         price: 1599.00,
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca4?auto=format&fit=crop&q=80&w=2069',
+        image: 'https://picsum.photos/seed/9k3j4h/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Apple M3 Chip',
           'RAM': '8GB Unified Memory',
@@ -35,12 +36,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 2,
         sku: 'LAP-MBP-M3-002',
         name: 'MacBook Pro 16-inch M3 Max',
         slug: 'macbook-pro-16-m3-max',
         description: 'Supercharged for pros. The most advanced chips. The most advanced displays. And now the longest battery life ever in a Mac.',
         price: 2499.00,
-        image: 'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/m2n3b4/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Apple M3 Max Chip',
           'RAM': '36GB Unified Memory',
@@ -58,12 +60,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 3,
         sku: 'LAP-DELL-XPS13-001',
         name: 'Dell XPS 13 Plus',
         slug: 'dell-xps-13-plus',
         description: 'Our smallest and lightest 13-inch XPS laptop is built for a lifestyle on the move with stunning design and performance.',
         price: 1299.00,
-        image: 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/p9o8i7/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Intel Core i7-1360P',
           'RAM': '16GB LPDDR5',
@@ -81,12 +84,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 4,
         sku: 'LAP-DELL-XPS15-001',
         name: 'Dell XPS 15',
         slug: 'dell-xps-15',
         description: 'Exceptional performance meets stunning visuals. Perfect for creators and professionals.',
         price: 1799.00,
-        image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/q1w2e3/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Intel Core i7-13700H',
           'RAM': '32GB DDR5',
@@ -104,12 +108,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 5,
         sku: 'LAP-HP-SPEC-001',
         name: 'HP Spectre x360 14',
         slug: 'hp-spectre-x360-14',
         description: 'Premium 2-in-1 laptop with stunning design and versatile performance.',
         price: 1449.00,
-        image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=2071',
+        image: 'https://picsum.photos/seed/r4t5y6/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Intel Core i7-1355U',
           'RAM': '16GB LPDDR4x',
@@ -127,12 +132,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 6,
         sku: 'LAP-ASUS-ROG-001',
         name: 'ASUS ROG Zephyrus G14',
         slug: 'asus-rog-zephyrus-g14',
         description: 'Compact gaming powerhouse with AMD Ryzen and NVIDIA RTX graphics.',
         price: 1699.00,
-        image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=2068',
+        image: 'https://picsum.photos/seed/u7i8o9/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'AMD Ryzen 9 7940HS',
           'RAM': '32GB DDR5',
@@ -150,12 +156,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 7,
         sku: 'LAP-LEN-X1-001',
         name: 'Lenovo ThinkPad X1 Carbon Gen 11',
         slug: 'lenovo-thinkpad-x1-carbon-gen11',
         description: 'Business laptop perfected. Ultra-light, ultra-powerful, ultra-secure.',
         price: 1899.00,
-        image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/a1s2d3/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Intel Core i7-1365U',
           'RAM': '32GB LPDDR5',
@@ -173,12 +180,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 8,
         sku: 'LAP-MSI-CREA-001',
         name: 'MSI Creator Z16P',
         slug: 'msi-creator-z16p',
         description: 'Professional creator laptop with stunning display and powerful performance.',
         price: 2199.00,
-        image: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=2064',
+        image: 'https://picsum.photos/seed/f4g5h6/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Intel Core i9-13900H',
           'RAM': '64GB DDR5',
@@ -196,12 +204,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 9,
         sku: 'LAP-ACER-SWIFT-001',
         name: 'Acer Swift 3',
         slug: 'acer-swift-3',
         description: 'Affordable performance laptop perfect for students and professionals.',
         price: 799.00,
-        image: 'https://images.unsplash.com/photo-1484788984921-03950022c9ef?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/j7k8l9/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'AMD Ryzen 7 5700U',
           'RAM': '16GB DDR4',
@@ -219,12 +228,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 10,
         sku: 'LAP-SURF-LAP5-001',
         name: 'Microsoft Surface Laptop 5',
         slug: 'microsoft-surface-laptop-5',
         description: 'Sleek, elegant design meets powerful performance in this premium laptop.',
         price: 1299.00,
-        image: 'https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/z1x2c3/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Intel Core i7-1255U',
           'RAM': '16GB LPDDR5x',
@@ -244,12 +254,13 @@ module.exports = {
 
       // SMARTPHONES (10 products)
       {
+        id: 11,
         sku: 'PHN-SAM-S24U-001',
         name: 'Samsung Galaxy S24 Ultra',
         slug: 'samsung-galaxy-s24-ultra',
         description: 'Galaxy AI is here. Welcome to the era of mobile AI with the most powerful Galaxy smartphone ever.',
         price: 1299.00,
-        image: 'https://images.unsplash.com/photo-1610945265078-38584e2690e0?auto=format&fit=crop&q=80&w=2068',
+        image: 'https://picsum.photos/seed/v4b5n6/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Snapdragon 8 Gen 3',
           'RAM': '12GB',
@@ -270,12 +281,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 12,
         sku: 'PHN-APP-IP15P-001',
         name: 'iPhone 15 Pro Max',
         slug: 'iphone-15-pro-max',
         description: 'Titanium design. A17 Pro chip. Action button. All-new 48MP Main camera.',
         price: 1199.00,
-        image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/m7n8b9/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'A17 Pro',
           'RAM': '8GB',
@@ -294,12 +306,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 13,
         sku: 'PHN-GOO-PIX8P-001',
         name: 'Google Pixel 8 Pro',
         slug: 'google-pixel-8-pro',
         description: 'The most helpful Pixel yet, with Google AI and the best Pixel camera.',
         price: 999.00,
-        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=2027',
+        image: 'https://picsum.photos/seed/h1j2k3/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Google Tensor G3',
           'RAM': '12GB',
@@ -318,12 +331,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 14,
         sku: 'PHN-ONE-12-001',
         name: 'OnePlus 12',
         slug: 'oneplus-12',
         description: 'Fast and smooth. Premium flagship experience at an incredible value.',
         price: 799.00,
-        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=2080',
+        image: 'https://picsum.photos/seed/l4k5j6/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Snapdragon 8 Gen 3',
           'RAM': '16GB',
@@ -342,12 +356,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 15,
         sku: 'PHN-XIA-14U-001',
         name: 'Xiaomi 14 Ultra',
         slug: 'xiaomi-14-ultra',
         description: 'Photography flagship with Leica optics and professional camera features.',
         price: 1099.00,
-        image: 'https://images.unsplash.com/photo-1592286927505-b0501e6c0143?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/g7f8d9/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Snapdragon 8 Gen 3',
           'RAM': '16GB',
@@ -366,12 +381,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 16,
         sku: 'PHN-APP-IP15-001',
         name: 'iPhone 15',
         slug: 'iphone-15',
         description: 'Dynamic Island. 48MP Main camera. USB-C. All in a durable color-infused glass design.',
         price: 799.00,
-        image: 'https://images.unsplash.com/photo-1592286927505-b0501e6c0143?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/s1a2d3/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'A16 Bionic',
           'RAM': '6GB',
@@ -390,12 +406,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 17,
         sku: 'PHN-SAM-S24-001',
         name: 'Samsung Galaxy S24',
         slug: 'samsung-galaxy-s24',
         description: 'Compact flagship with Galaxy AI and powerful performance.',
         price: 799.00,
-        image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/f4g5h6_2/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Exynos 2400',
           'RAM': '8GB',
@@ -414,12 +431,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 18,
         sku: 'PHN-GOO-PIX8-001',
         name: 'Google Pixel 8',
         slug: 'google-pixel-8',
         description: 'Helpful AI features and amazing camera in a compact design.',
         price: 699.00,
-        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=2027',
+        image: 'https://picsum.photos/seed/j7k8l9_2/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Google Tensor G3',
           'RAM': '8GB',
@@ -438,12 +456,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 19,
         sku: 'PHN-MOT-EDGE-001',
         name: 'Motorola Edge 40 Pro',
         slug: 'motorola-edge-40-pro',
         description: 'Premium performance with clean Android experience and fast charging.',
         price: 599.00,
-        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=2080',
+        image: 'https://picsum.photos/seed/q1w2e3_2/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Snapdragon 8 Gen 2',
           'RAM': '12GB',
@@ -462,12 +481,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 20,
         sku: 'PHN-ASUS-ROG8-001',
         name: 'ASUS ROG Phone 8 Pro',
         slug: 'asus-rog-phone-8-pro',
         description: 'Ultimate gaming smartphone with advanced cooling and 165Hz display.',
         price: 1199.00,
-        image: 'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/r4t5y6_2/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Snapdragon 8 Gen 3',
           'RAM': '24GB',
@@ -488,12 +508,13 @@ module.exports = {
 
       // TABLETS (4 products)
       {
+        id: 21,
         sku: 'TAB-APP-IPADP-001',
         name: 'iPad Pro 12.9-inch M2',
         slug: 'ipad-pro-12-9-m2',
         description: 'The ultimate iPad experience with M2 chip and Liquid Retina XDR display.',
         price: 1099.00,
-        image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=2030',
+        image: 'https://picsum.photos/seed/u7i8o9_2/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Apple M2',
           'Storage': '128GB',
@@ -510,12 +531,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 22,
         sku: 'TAB-SAM-TABS9U-001',
         name: 'Samsung Galaxy Tab S9 Ultra',
         slug: 'samsung-galaxy-tab-s9-ultra',
         description: 'Massive 14.6-inch display with S Pen included. Perfect for productivity and creativity.',
         price: 1199.00,
-        image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/z1x2c3_2/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Snapdragon 8 Gen 2',
           'Storage': '256GB',
@@ -532,12 +554,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 23,
         sku: 'TAB-APP-IPADAIR-001',
         name: 'iPad Air M2',
         slug: 'ipad-air-m2',
         description: 'Serious performance in a thin and light design with M2 chip.',
         price: 599.00,
-        image: 'https://images.unsplash.com/photo-1585790050230-5dd28404f869?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/v4b5n6_2/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Apple M2',
           'Storage': '128GB',
@@ -554,12 +577,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 24,
         sku: 'TAB-MIC-SURFP9-001',
         name: 'Microsoft Surface Pro 9',
         slug: 'microsoft-surface-pro-9',
         description: 'Laptop versatility meets tablet portability with Windows 11.',
         price: 999.00,
-        image: 'https://images.unsplash.com/photo-1587033411391-5d9e51cce126?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/m7n8b9_2/800/600.webp',
         specifications: JSON.stringify({
           'Processor': 'Intel Core i7-1255U',
           'Storage': '256GB SSD',
@@ -578,12 +602,13 @@ module.exports = {
 
       // AUDIO (5 products)
       {
+        id: 25,
         sku: 'AUD-APP-AIRPODSP-001',
         name: 'AirPods Pro (2nd Gen)',
         slug: 'airpods-pro-2nd-gen',
         description: 'Rebuilt from the sound up with up to 2x more Active Noise Cancellation.',
         price: 249.00,
-        image: 'https://images.unsplash.com/photo-1603351154351-5cf99bc32f2d?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/h1j2k3_2/800/600.webp',
         specifications: JSON.stringify({
           'Type': 'In-Ear',
           'Connectivity': 'Bluetooth 5.3',
@@ -600,12 +625,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 26,
         sku: 'AUD-SON-WH1000XM5-001',
         name: 'Sony WH-1000XM5',
         slug: 'sony-wh-1000xm5',
         description: 'Industry-leading noise cancellation with two processors controlling 8 microphones.',
         price: 398.00,
-        image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=1976',
+        image: 'https://picsum.photos/seed/l4k5j6_2/800/600.webp',
         specifications: JSON.stringify({
           'Type': 'Over-Ear',
           'Connectivity': 'Bluetooth 5.2',
@@ -624,12 +650,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 27,
         sku: 'AUD-BOSE-QC45-001',
         name: 'Bose QuietComfort 45',
         slug: 'bose-quietcomfort-45',
         description: 'Legendary noise cancellation and premium comfort for all-day listening.',
         price: 329.00,
-        image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&q=80&w=2065',
+        image: 'https://picsum.photos/seed/g7f8d9_2/800/600.webp',
         specifications: JSON.stringify({
           'Type': 'Over-Ear',
           'Connectivity': 'Bluetooth 5.1',
@@ -646,12 +673,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 28,
         sku: 'AUD-SAM-BUDS2P-001',
         name: 'Samsung Galaxy Buds2 Pro',
         slug: 'samsung-galaxy-buds2-pro',
         description: 'Premium sound with intelligent ANC and 360 Audio.',
         price: 229.00,
-        image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/s1a2d3_2/800/600.webp',
         specifications: JSON.stringify({
           'Type': 'In-Ear',
           'Connectivity': 'Bluetooth 5.3',
@@ -668,12 +696,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 29,
         sku: 'AUD-JBL-LIVE660NC-001',
         name: 'JBL Live 660NC',
         slug: 'jbl-live-660nc',
         description: 'Wireless over-ear headphones with adaptive noise cancelling and JBL Signature Sound.',
         price: 149.00,
-        image: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/p9o8i7_2/800/600.webp',
         specifications: JSON.stringify({
           'Type': 'Over-Ear',
           'Connectivity': 'Bluetooth 5.0',
@@ -692,12 +721,13 @@ module.exports = {
 
       // SMARTWATCHES (3 products)
       {
+        id: 30,
         sku: 'WAT-APP-AWS9-001',
         name: 'Apple Watch Series 9',
         slug: 'apple-watch-series-9',
         description: 'Smarter. Brighter. Mightier. The most powerful chip in Apple Watch ever.',
         price: 399.00,
-        image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&q=80&w=2071',
+        image: 'https://picsum.photos/seed/a1b2c3_3/800/600.webp',
         specifications: JSON.stringify({
           'Display': 'Always-On Retina LTPO OLED',
           'Battery Life': 'Up to 18 hours',
@@ -714,12 +744,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 31,
         sku: 'WAT-SAM-GW6C-001',
         name: 'Samsung Galaxy Watch 6 Classic',
         slug: 'samsung-galaxy-watch-6-classic',
         description: 'Premium smartwatch with rotating bezel and advanced health tracking.',
         price: 399.00,
-        image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&q=80&w=2072',
+        image: 'https://picsum.photos/seed/x9y8z7_3/800/600.webp',
         specifications: JSON.stringify({
           'Display': '1.5" Super AMOLED',
           'Battery Life': 'Up to 40 hours',
@@ -736,12 +767,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 32,
         sku: 'WAT-GAR-FEN7-001',
         name: 'Garmin Fenix 7',
         slug: 'garmin-fenix-7',
         description: 'Multisport GPS smartwatch with advanced training features and solar charging.',
         price: 699.00,
-        image: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&q=80&w=2127',
+        image: 'https://picsum.photos/seed/q1w2e3_3/800/600.webp',
         specifications: JSON.stringify({
           'Display': '1.3" Transflective MIP',
           'Battery Life': 'Up to 18 days',
@@ -760,12 +792,13 @@ module.exports = {
 
       // CAMERAS (3 products)
       {
+        id: 33,
         sku: 'CAM-SON-A7IV-001',
         name: 'Sony Alpha a7 IV',
         slug: 'sony-alpha-a7-iv',
         description: 'Hybrid full-frame mirrorless camera perfect for both photo and video.',
         price: 2498.00,
-        image: 'https://images.unsplash.com/photo-1606980707986-683d8dc3e0c7?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/r4t5y6_3/800/600.webp',
         specifications: JSON.stringify({
           'Sensor': 'Full-Frame CMOS',
           'Megapixels': '33MP',
@@ -782,12 +815,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 34,
         sku: 'CAM-CAN-R6II-001',
         name: 'Canon EOS R6 Mark II',
         slug: 'canon-eos-r6-mark-ii',
         description: 'High-speed full-frame mirrorless camera with advanced autofocus.',
         price: 2499.00,
-        image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/u7i8o9_3/800/600.webp',
         specifications: JSON.stringify({
           'Sensor': 'Full-Frame CMOS',
           'Megapixels': '24.2MP',
@@ -804,12 +838,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 35,
         sku: 'CAM-FUJ-XT5-001',
         name: 'Fujifilm X-T5',
         slug: 'fujifilm-x-t5',
         description: 'Retro-styled APS-C mirrorless camera with 40MP sensor and film simulations.',
         price: 1699.00,
-        image: 'https://images.unsplash.com/photo-1606980707986-683d8dc3e0c7?auto=format&fit=crop&q=80&w=2070',
+        image: 'https://picsum.photos/seed/z1x2c3_3/800/600.webp',
         specifications: JSON.stringify({
           'Sensor': 'APS-C X-Trans CMOS 5 HR',
           'Megapixels': '40.2MP',
@@ -828,12 +863,13 @@ module.exports = {
 
       // GAMING (2 products)
       {
+        id: 36,
         sku: 'GAM-SON-PS5-001',
         name: 'PlayStation 5',
         slug: 'playstation-5',
         description: 'Experience lightning-fast loading with an ultra-high speed SSD and stunning games.',
         price: 499.00,
-        image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&q=80&w=2072',
+        image: 'https://picsum.photos/seed/v4b5n6_3/800/600.webp',
         specifications: JSON.stringify({
           'Platform': 'PlayStation 5',
           'Storage': '825GB SSD',
@@ -850,12 +886,13 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 37,
         sku: 'GAM-MIC-XBSX-001',
         name: 'Xbox Series X',
         slug: 'xbox-series-x',
         description: 'The fastest, most powerful Xbox ever with 12 teraflops of processing power.',
         price: 499.00,
-        image: 'https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&q=80&w=2032',
+        image: 'https://picsum.photos/seed/m7n8b9_3/800/600.webp',
         specifications: JSON.stringify({
           'Platform': 'Xbox Series X',
           'Storage': '1TB SSD',

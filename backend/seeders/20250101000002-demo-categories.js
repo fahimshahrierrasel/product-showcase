@@ -5,6 +5,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Categories', [
       {
+        id: 1,
         name: 'Laptops',
         slug: 'laptops',
         description: 'High-performance laptops for work and gaming',
@@ -13,6 +14,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 2,
         name: 'Smartphones',
         slug: 'smartphones',
         description: 'Latest smartphones with cutting-edge technology',
@@ -21,6 +23,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 3,
         name: 'Tablets',
         slug: 'tablets',
         description: 'Portable tablets for productivity and entertainment',
@@ -29,6 +32,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 4,
         name: 'Audio',
         slug: 'audio',
         description: 'Premium headphones, earbuds, and speakers',
@@ -37,6 +41,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 5,
         name: 'Smartwatches',
         slug: 'smartwatches',
         description: 'Wearable technology for health and fitness',
@@ -45,6 +50,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 6,
         name: 'Cameras',
         slug: 'cameras',
         description: 'Professional and consumer cameras',
@@ -53,6 +59,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 7,
         name: 'Gaming',
         slug: 'gaming',
         description: 'Gaming consoles and accessories',
