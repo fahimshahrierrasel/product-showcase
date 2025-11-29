@@ -2,6 +2,15 @@ import { api } from '@/lib/api';
 import { ProductCard } from '@/components/ProductCard';
 import { FilterSidebar } from '@/components/product/FilterSidebar';
 import { SortDropdown } from '@/components/product/SortDropdown';
+import { Button } from '@/components/ui/button';
+import { Filter } from 'lucide-react';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata() {
@@ -21,7 +30,7 @@ export default async function ProductsPage({
   const t = await getTranslations('products');
   const tFilters = await getTranslations('filters');
 
-  
+
   const products = await api.getProducts({
     minPrice: params.minPrice ? Number(params.minPrice) : undefined,
     maxPrice: params.maxPrice ? Number(params.maxPrice) : undefined,
@@ -34,7 +43,7 @@ export default async function ProductsPage({
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar */}
-        <aside className="w-full md:w-64 flex-shrink-0">
+        <aside className="hidden md:block w-64 flex-shrink-0">
           <div className="bg-white p-6 rounded-lg shadow-sm sticky top-24">
             <h2 className="text-xl font-bold mb-6">{tFilters('title')}</h2>
             <FilterSidebar />
@@ -43,9 +52,27 @@ export default async function ProductsPage({
 
         {/* Main Content */}
         <main className="flex-grow">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold">{t('title')}</h1>
-            <SortDropdown />
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+            <h1 className="text-2xl sm:text-3xl font-bold">{t('title')}</h1>
+            <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="outline" size="sm" className="md:hidden flex-1 sm:flex-none">
+                    <Filter className="w-4 h-4 mr-2" />
+                    {tFilters('title')}
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left">
+                  <SheetHeader>
+                    <SheetTitle>{tFilters('title')}</SheetTitle>
+                  </SheetHeader>
+                  <div className="mt-6 px-1">
+                    <FilterSidebar />
+                  </div>
+                </SheetContent>
+              </Sheet>
+              <SortDropdown />
+            </div>
           </div>
 
           {products.length === 0 ? (
@@ -53,7 +80,7 @@ export default async function ProductsPage({
               <p className="text-xl text-gray-600">{t('notFound')}</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}

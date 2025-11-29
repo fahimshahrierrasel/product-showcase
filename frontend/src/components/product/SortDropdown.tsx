@@ -24,10 +24,10 @@ export function SortDropdown() {
 
   return (
     <Select value={currentSort} onValueChange={handleSortChange}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[140px] sm:w-[180px]">
         <SelectValue placeholder={t('placeholder')} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent align="end">
         <SelectItem value="newest">{t('newest')}</SelectItem>
         <SelectItem value="price_asc">{t('priceLowHigh')}</SelectItem>
         <SelectItem value="price_desc">{t('priceHighLow')}</SelectItem>

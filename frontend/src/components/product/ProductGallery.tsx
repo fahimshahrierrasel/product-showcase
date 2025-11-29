@@ -20,7 +20,7 @@ export function ProductGallery({ images, mainImage }: ProductGalleryProps) {
         <img
           src={selectedImage}
           alt="Product image"
-          className="h-full w-full object-contain p-4"
+          className="h-full w-full object-cover p-4"
         />
       </div>
       <div className="flex gap-4 overflow-auto pb-2">
@@ -33,11 +33,11 @@ export function ProductGallery({ images, mainImage }: ProductGalleryProps) {
             )}
             onClick={() => setSelectedImage(image)}
           >
-             {/* eslint-disable-next-line @next/next/no-img-element */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={image}
               alt={`Product thumbnail ${index + 1}`}
-              className="h-full w-full object-contain p-2"
+              className="h-full w-full object-cover p-2"
             />
           </button>
         ))}

@@ -14,7 +14,7 @@ export const metadata = {
 
 export default async function Home() {
   const t = await getTranslations('home');
-  
+
   const [homeInfo, featuredProducts, newArrivals, bestSellers, categories] = await Promise.all([
     api.getHomeInfo().catch(() => ({ slides: [] })),
     api.getProducts({ featured: true }).catch(() => []),
@@ -26,7 +26,7 @@ export default async function Home() {
   return (
     <main>
       <HeroSection slides={homeInfo.slides} />
-      
+
       {/* Exciting Offers */}
       <section className="py-16 container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">{t('offers.title')}</h2>
@@ -69,21 +69,21 @@ export default async function Home() {
 
       {/* Featured Products */}
       <section className="py-16 container mx-auto px-4">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <h2 className="text-3xl font-bold">{t('featured.title')}</h2>
-          <div className="flex gap-2">
-            <Button variant="outline" size="sm">{t('featured.all')}</Button>
-            <Button variant="ghost" size="sm">{t('featured.newArrivals')}</Button>
-            <Button variant="ghost" size="sm">{t('featured.bestSellers')}</Button>
+          <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto no-scrollbar">
+            <Button variant="outline" size="sm" className="whitespace-nowrap">{t('featured.all')}</Button>
+            <Button variant="ghost" size="sm" className="whitespace-nowrap">{t('featured.newArrivals')}</Button>
+            <Button variant="ghost" size="sm" className="whitespace-nowrap">{t('featured.bestSellers')}</Button>
           </div>
         </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {featuredProducts.slice(0, 4).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
           <Link href="/products">
             <Button variant="outline" size="lg">{t('featured.viewAll')}</Button>
@@ -98,7 +98,7 @@ export default async function Home() {
             <h2 className="text-4xl font-bold mb-4">{t('contact.title')}</h2>
             <p className="text-gray-600 text-lg">{t('contact.subtitle')}</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Call Us Card */}
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
@@ -106,7 +106,7 @@ export default async function Home() {
                 <Phone className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold mb-3">{t('contact.call.title')}</h3>
-              <a 
+              <a
                 href={`tel:${t('contact.call.number').replace(/[^0-9+]/g, '')}`}
                 className="text-blue-600 font-semibold text-lg hover:text-blue-700 transition-colors block mb-2"
               >
@@ -121,7 +121,7 @@ export default async function Home() {
                 <Mail className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold mb-3">{t('contact.email.title')}</h3>
-              <a 
+              <a
                 href={`mailto:${t('contact.email.address')}`}
                 className="text-green-600 font-semibold text-lg hover:text-green-700 transition-colors block mb-2"
               >

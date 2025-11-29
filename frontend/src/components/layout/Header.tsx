@@ -13,6 +13,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { Menu } from 'lucide-react';
 
 import { useEffect, useState } from 'react';
 import { Category } from '@/types';
@@ -43,10 +52,10 @@ export function Header() {
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <Image 
-              src="/logo.png" 
-              alt="Tokyo Device Hub" 
-              width={40} 
+            <Image
+              src="/logo.png"
+              alt="Tokyo Device Hub"
+              width={40}
               height={40}
               className="object-contain"
             />
@@ -58,9 +67,9 @@ export function Header() {
           {/* Navigation */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
             {categories.map((category) => (
-              <Link 
-                key={category.id} 
-                href={`/category/${category.slug}`} 
+              <Link
+                key={category.id}
+                href={`/category/${category.slug}`}
                 className="hover:text-black transition-colors"
               >
                 {category.name}
@@ -71,8 +80,8 @@ export function Header() {
           {/* Search & Actions */}
           <div className="flex items-center gap-4">
             <div className="relative hidden sm:block w-64">
-              <Input 
-                type="search" 
+              <Input
+                type="search"
                 placeholder={t('search')}
                 className="pl-4 pr-10 rounded-full bg-gray-100 border-transparent focus:bg-white transition-all"
               />
@@ -84,34 +93,100 @@ export function Header() {
             </Button>
 
             {/* Language Switcher */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Globe className="w-5 h-5" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem 
-                  onClick={() => switchLocale('en')}
-                  className={locale === 'en' ? 'bg-gray-100' : ''}
-                >
-                  English
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => switchLocale('ja')}
-                  className={locale === 'ja' ? 'bg-gray-100' : ''}
-                >
-                  日本語
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="hidden md:block">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Globe className="w-5 h-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem
+                    onClick={() => switchLocale('en')}
+                    className={locale === 'en' ? 'bg-gray-100' : ''}
+                  >
+                    English
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={() => switchLocale('ja')}
+                    className={locale === 'ja' ? 'bg-gray-100' : ''}
+                  >
+                    日本語
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
 
-            <Link href="/contact">
-              <Button className="bg-black text-white hover:bg-gray-800 rounded-full px-6">
-                <Phone className="w-4 h-4 mr-2" />
-                {t('contact')}
-              </Button>
-            </Link>
+            <div className="hidden md:block">
+              <Link href="/contact">
+                <Button className="bg-black text-white hover:bg-gray-800 rounded-full px-6">
+                  <Phone className="w-4 h-4 mr-2" />
+                  {t('contact')}
+                </Button>
+              </Link>
+            </div>
+            {/* Mobile Menu Trigger */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="w-6 h-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+                <SheetHeader>
+                  <SheetTitle className="text-left">{t('logo')}</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col gap-6 mt-8">
+                  {/* Mobile Navigation */}
+                  <nav className="flex flex-col gap-4">
+                    {categories.map((category) => (
+                      <SheetClose asChild key={category.id}>
+                        <Link
+                          href={`/category/${category.slug}`}
+                          className="text-lg font-medium text-gray-600 hover:text-black transition-colors py-2 px-2 hover:bg-gray-50 rounded-md"
+                        >
+                          {category.name}
+                        </Link>
+                      </SheetClose>
+                    ))}
+                  </nav>
+
+                  <div className="h-px bg-gray-100" />
+
+                  {/* Mobile Actions */}
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-gray-500">Language</span>
+                      <div className="flex gap-2">
+                        <Button
+                          variant={locale === 'en' ? 'default' : 'outline'}
+                          size="sm"
+                          onClick={() => switchLocale('en')}
+                        >
+                          EN
+                        </Button>
+                        <Button
+                          variant={locale === 'ja' ? 'default' : 'outline'}
+                          size="sm"
+                          onClick={() => switchLocale('ja')}
+                        >
+                          JP
+                        </Button>
+                      </div>
+                    </div>
+
+                    <SheetClose asChild>
+                      <Link href="/contact">
+                        <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-full">
+                          <Phone className="w-4 h-4 mr-2" />
+                          {t('contact')}
+                        </Button>
+                      </Link>
+                    </SheetClose>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
