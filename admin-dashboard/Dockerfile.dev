@@ -1,4 +1,4 @@
-FROM node:22-alpine AS base
+FROM node:22-alpine
 
 # Accept build arguments for user/group IDs
 ARG USER_ID=1000
@@ -13,9 +13,6 @@ RUN npm install -g pnpm
 COPY package*.json ./
 RUN pnpm install
 
-# Install dev tools (ts-node-dev for hot reload)
-RUN pnpm install --dev
-
 # Copy application files
 COPY . .
 
@@ -25,6 +22,6 @@ RUN chown -R node:node /app
 # Switch to node user
 USER node
 
-EXPOSE 5000
+EXPOSE 5173
 
-CMD ["pnpm", "dev"]
+CMD ["pnpm", "dev", "--", "--host"]

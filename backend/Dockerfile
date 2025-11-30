@@ -2,11 +2,14 @@ FROM node:22-alpine
 
 WORKDIR /app
 
+# Install pnpm
+RUN npm install -g pnpm
+
 # Copy package files
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN pnpm install
 
 # Copy source code
 COPY . .
@@ -15,4 +18,4 @@ COPY . .
 EXPOSE 5000
 
 # Start the application
-CMD ["npx", "ts-node", "src/server.ts"]
+CMD ["pnpm", "exec", "ts-node", "src/server.ts"]

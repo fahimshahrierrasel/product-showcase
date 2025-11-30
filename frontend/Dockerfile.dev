@@ -6,12 +6,15 @@ ARG GROUP_ID=1000
 
 WORKDIR /app
 
+# Install pnpm
+RUN npm install -g pnpm
+
 # Copy package files and install dependencies as root first
 COPY package*.json ./
-RUN npm install
+RUN pnpm install
 
 # Install dev tools
-RUN npm install --only=dev
+RUN pnpm install --dev
 
 # Copy application files
 COPY . .
@@ -24,4 +27,4 @@ USER node
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["pnpm", "dev"]
