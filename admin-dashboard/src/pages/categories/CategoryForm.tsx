@@ -66,13 +66,7 @@ const CategoryForm: React.FC = () => {
                         <Input />
                     </Form.Item>
 
-                    <Form.Item
-                        name="slug"
-                        label="Slug"
-                        rules={[{ required: true, message: 'Please enter slug' }]}
-                    >
-                        <Input />
-                    </Form.Item>
+
 
                     <Form.Item
                         name="description"

@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
+import { getApiUrl } from '@/lib/api';
 
 export async function GET() {
   try {
     // Use server-side API URL (Docker service name works here)
-    const apiUrl = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+    const apiUrl = getApiUrl();
     
     const res = await fetch(`${apiUrl}/categories`, { 
       cache: 'no-store',

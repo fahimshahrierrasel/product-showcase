@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Input, Button, Card, Switch, InputNumber, message, Image } from 'antd';
+import { Form, Input, Button, Card, Switch, InputNumber, message, Image, Row, Col, Upload } from 'antd';
+import { UploadOutlined, PlusOutlined } from '@ant-design/icons';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
 
@@ -7,6 +8,7 @@ const HeroSlideForm: React.FC = () => {
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
     const [imagePreview, setImagePreview] = useState<string>('');
+    const [fileList, setFileList] = useState<any[]>([]);
     const navigate = useNavigate();
     const { id } = useParams();
     const isEdit = !!id;
@@ -22,14 +24,49 @@ const HeroSlideForm: React.FC = () => {
             const response = await api.get(`/hero-slides/${id}`);
             form.setFieldsValue(response.data);
             setImagePreview(response.data.imageUrl);
+            if (response.data.imageUrl) {
+                setFileList([
+                    {
+                        uid: '-1',
+                        name: 'image.png',
+                        status: 'done',
+                        url: response.data.imageUrl.startsWith('http') ? response.data.imageUrl : `${import.meta.env.VITE_API_URL?.replace('/api', '')}${response.data.imageUrl}`,
+                    },
+                ]);
+            }
         } catch (error) {
             message.error('Failed to fetch hero slide');
         }
     };
 
-    const handleImageUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const url = e.target.value;
-        setImagePreview(url);
+    const handleUploadChange = async ({ file, fileList: newFileList }: any) => {
+        setFileList(newFileList);
+        
+        if (file.status === 'uploading') {
+            return;
+        }
+
+        if (file.originFileObj) {
+             // Upload immediately to get URL
+             const formData = new FormData();
+             formData.append('image', file.originFileObj);
+             
+             try {
+                 const response = await api.post('/upload', formData, {
+                     headers: { 'Content-Type': 'multipart/form-data' }
+                 });
+                 const imageUrl = response.data.filePath;
+                 form.setFieldsValue({ imageUrl });
+                 setImagePreview(imageUrl.startsWith('http') ? imageUrl : `${import.meta.env.VITE_API_URL?.replace('/api', '')}${imageUrl}`);
+                 message.success('Image uploaded successfully');
+             } catch (error) {
+                 message.error('Image upload failed');
+                 console.error(error);
+             }
+        } else if (newFileList.length === 0) {
+            form.setFieldsValue({ imageUrl: '' });
+            setImagePreview('');
+        }
     };
 
     const onFinish = async (values: any) => {
@@ -50,97 +87,116 @@ const HeroSlideForm: React.FC = () => {
         }
     };
 
-    return (
+    const uploadButton = (
         <div>
-            <h2>{isEdit ? 'Edit Hero Slide' : 'Create Hero Slide'}</h2>
-            <Card>
-                <Form
-                    form={form}
-                    layout="vertical"
-                    onFinish={onFinish}
-                    initialValues={{ order: 0, isActive: true }}
-                >
-                    <Form.Item
-                        label="Title"
-                        name="title"
-                        rules={[{ required: true, message: 'Please input the title!' }]}
-                    >
-                        <Input />
-                    </Form.Item>
-
-                    <Form.Item
-                        label="Subtitle"
-                        name="subtitle"
-                        rules={[{ required: true, message: 'Please input the subtitle!' }]}
-                    >
-                        <Input />
-                    </Form.Item>
-
-                    <Form.Item
-                        label="Image URL"
-                        name="imageUrl"
-                        rules={[
-                            { required: true, message: 'Please input the image URL!' },
-                            { type: 'url', message: 'Please enter a valid URL!' }
-                        ]}
-                    >
-                        <Input onChange={handleImageUrlChange} placeholder="https://example.com/image.jpg" />
-                    </Form.Item>
-
-                    {imagePreview && (
-                        <Form.Item label="Image Preview">
-                            <Image
-                                src={imagePreview}
-                                alt="Preview"
-                                style={{ maxWidth: '100%', maxHeight: 300, objectFit: 'cover' }}
-                                fallback="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
-                            />
-                        </Form.Item>
-                    )}
-
-                    <Form.Item
-                        label="CTA Text"
-                        name="ctaText"
-                        rules={[{ required: true, message: 'Please input the CTA text!' }]}
-                    >
-                        <Input placeholder="e.g., Shop Now" />
-                    </Form.Item>
-
-                    <Form.Item
-                        label="CTA Link"
-                        name="ctaLink"
-                        rules={[{ required: true, message: 'Please input the CTA link!' }]}
-                    >
-                        <Input placeholder="e.g., /products" />
-                    </Form.Item>
-
-                    <Form.Item
-                        label="Order"
-                        name="order"
-                        rules={[{ required: true, message: 'Please input the order!' }]}
-                    >
-                        <InputNumber min={0} style={{ width: '100%' }} />
-                    </Form.Item>
-
-                    <Form.Item
-                        label="Active"
-                        name="isActive"
-                        valuePropName="checked"
-                    >
-                        <Switch />
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit" loading={loading} style={{ marginRight: 8 }}>
-                            {isEdit ? 'Update' : 'Create'}
-                        </Button>
-                        <Button onClick={() => navigate('/hero-slides')}>
-                            Cancel
-                        </Button>
-                    </Form.Item>
-                </Form>
-            </Card>
+            <PlusOutlined />
+            <div style={{ marginTop: 8 }}>Upload</div>
         </div>
+    );
+
+    return (
+        <Card title={isEdit ? 'Edit Hero Slide' : 'Create Hero Slide'}>
+             <Form
+                form={form}
+                layout="vertical"
+                onFinish={onFinish}
+                initialValues={{ order: 0, isActive: true }}
+            >
+                <Row gutter={16}>
+                    <Col span={12}>
+                        <Form.Item
+                            label="Title"
+                            name="title"
+                            rules={[{ required: true, message: 'Please input the title!' }]}
+                        >
+                            <Input placeholder="Slide Title" />
+                        </Form.Item>
+                    </Col>
+
+                    <Col span={12}>
+                        <Form.Item
+                            label="Subtitle"
+                            name="subtitle"
+                            rules={[{ required: true, message: 'Please input the subtitle!' }]}
+                        >
+                            <Input placeholder="Slide Subtitle" />
+                        </Form.Item>
+                    </Col>
+
+                    <Col span={12}>
+                        <Form.Item
+                            label="CTA Text"
+                            name="ctaText"
+                            rules={[{ required: true, message: 'Please input the CTA text!' }]}
+                        >
+                            <Input placeholder="e.g., Shop Now" />
+                        </Form.Item>
+                    </Col>
+
+                    <Col span={12}>
+                        <Form.Item
+                            label="CTA Link"
+                            name="ctaLink"
+                            rules={[{ required: true, message: 'Please input the CTA link!' }]}
+                        >
+                            <Input placeholder="e.g., /products" />
+                        </Form.Item>
+                    </Col>
+
+                    <Col span={12}>
+                        <Form.Item
+                            label="Order"
+                            name="order"
+                            rules={[{ required: true, message: 'Please input the order!' }]}
+                        >
+                            <InputNumber min={0} style={{ width: '100%' }} />
+                        </Form.Item>
+                    </Col>
+
+                    <Col span={12}>
+                        <Form.Item
+                            label="Active"
+                            name="isActive"
+                            valuePropName="checked"
+                        >
+                            <Switch />
+                        </Form.Item>
+                    </Col>
+
+                    <Col span={24}>
+                        <Form.Item
+                            label="Image"
+                            name="imageUrl"
+                            rules={[{ required: true, message: 'Please upload an image!' }]}
+                            hidden // Hide the actual input, use Upload component
+                        >
+                            <Input />
+                        </Form.Item>
+                        
+                        <Form.Item label="Slide Image">
+                            <Upload
+                                listType="picture-card"
+                                fileList={fileList}
+                                onChange={handleUploadChange}
+                                beforeUpload={() => false} // Prevent auto upload by antd, handle manually
+                                maxCount={1}
+                            >
+                                {fileList.length >= 1 ? null : uploadButton}
+                            </Upload>
+                        </Form.Item>
+                    </Col>
+                </Row>
+
+                <Form.Item>
+                    <Button type="primary" htmlType="submit" loading={loading} style={{ marginRight: 8 }}>
+                        {isEdit ? 'Update' : 'Create'}
+                    </Button>
+                    <Button onClick={() => navigate('/hero-slides')}>
+                        Cancel
+                    </Button>
+                </Form.Item>
+            </Form>
+        </Card>
     );
 };
 

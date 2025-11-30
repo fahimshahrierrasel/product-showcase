@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from '@/components/ui/button';
 import { formatYen } from '@/lib/utils/currency';
 import { useTranslations } from 'next-intl';
+import { getImageUrl } from '@/lib/api';
 
 interface ProductCardProps {
   product: Product;
@@ -12,9 +13,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const t = useTranslations('products');
-  const imageUrl = product.image.startsWith('http') 
-    ? product.image 
-    : `http://localhost:5000${product.image}`;
+  const imageUrl = getImageUrl(product.image);
 
   return (
     <Card className="overflow-hidden flex flex-col h-full hover:shadow-lg transition-shadow duration-300">

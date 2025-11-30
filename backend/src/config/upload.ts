@@ -1,3 +1,4 @@
+import { ulid } from 'ulid';
 import multer from 'multer';
 import path from 'path';
 import { Request } from 'express';
@@ -7,8 +8,18 @@ const storage = multer.diskStorage({
     cb(null, 'src/uploads/');
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
+    const uniqueSuffix = ulid();
+    let prefix = 'image';
+    
+    if (req.body.name) {
+      prefix = req.body.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+    
+    cb(null, `${prefix}-${uniqueSuffix}${path.extname(file.originalname)}`);
   },
 });
 

@@ -1,7 +1,7 @@
 import { Product, ProductFormData, HeroSlide, HomeInfo, Category } from '@/types';
 
 // Use different API URLs for server-side (Docker) and client-side (browser)
-const getApiUrl = () => {
+export const getApiUrl = () => {
   // Server-side: use internal Docker service name
   if (typeof window === 'undefined') {
     return process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
@@ -10,7 +10,14 @@ const getApiUrl = () => {
   return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 };
 
-const API_URL = getApiUrl();
+export const API_URL = getApiUrl();
+
+export const getImageUrl = (path: string) => {
+  if (!path) return '';
+  if (path.startsWith('http')) return path;
+  const baseUrl = API_URL.replace('/api', '');
+  return `${baseUrl}${path}`;
+};
 
 export const api = {
   getProducts: async (params?: { 
