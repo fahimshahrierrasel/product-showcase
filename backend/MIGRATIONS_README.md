@@ -12,17 +12,17 @@ This project uses **Sequelize CLI** for database migrations and seeders. This ap
 
 ```bash
 # Create the database and run all migrations
-npm run migrate
+pnpm migrate
 
 # Populate the database with seed data
-npm run seed
+pnpm seed
 ```
 
 ### 2. Reset Database (Development)
 
 ```bash
 # Drop all tables, recreate schema, and seed data
-npm run db:reset
+pnpm db:reset
 ```
 
 ---
@@ -33,23 +33,23 @@ npm run db:reset
 
 | Command | Description |
 |---------|-------------|
-| `npm run migrate` | Run all pending migrations |
-| `npm run migrate:undo` | Undo the last migration |
-| `npm run migrate:undo:all` | Undo all migrations (drops all tables) |
+| `pnpm migrate` | Run all pending migrations |
+| `pnpm migrate:undo` | Undo the last migration |
+| `pnpm migrate:undo:all` | Undo all migrations (drops all tables) |
 
 ### Seeders
 
 | Command | Description |
 |---------|-------------|
-| `npm run seed` | Run all seeders |
-| `npm run seed:undo` | Undo the last seeder |
-| `npm run seed:undo:all` | Undo all seeders (removes all data) |
+| `pnpm seed` | Run all seeders |
+| `pnpm seed:undo` | Undo the last seeder |
+| `pnpm seed:undo:all` | Undo all seeders (removes all data) |
 
 ### Combined
 
 | Command | Description |
 |---------|-------------|
-| `npm run db:reset` | Complete reset: undo migrations → run migrations → run seeders |
+| `pnpm db:reset` | Complete reset: undo migrations → run migrations → run seeders |
 
 ---
 
@@ -93,7 +93,7 @@ Password: password123
 
 ```bash
 # Generate a new migration file
-npx sequelize-cli migration:generate --name add-new-field-to-products
+pnpm dlx sequelize-cli migration:generate --name add-new-field-to-products
 ```
 
 Edit the generated file in `migrations/` folder:
@@ -115,7 +115,7 @@ module.exports = {
 
 Then run:
 ```bash
-npm run migrate
+pnpm migrate
 ```
 
 ---
@@ -124,7 +124,7 @@ npm run migrate
 
 ```bash
 # Generate a new seeder file
-npx sequelize-cli seed:generate --name demo-new-data
+pnpm dlx sequelize-cli seed:generate --name demo-new-data
 ```
 
 Edit the generated file in `seeders/` folder:
@@ -145,7 +145,7 @@ module.exports = {
 
 Then run:
 ```bash
-npm run seed
+pnpm seed
 ```
 
 ---
@@ -162,12 +162,12 @@ npm run seed
 
 2. **Run Migrations**
    ```bash
-   npm run migrate
+   pnpm migrate
    ```
 
 3. **Optional: Run Seeders** (usually only for staging/demo environments)
    ```bash
-   npm run seed
+   pnpm seed
    ```
 
 ### Important Notes
@@ -186,33 +186,33 @@ npm run seed
 
 ```bash
 # Check migration status
-npx sequelize-cli db:migrate:status
+pnpm dlx sequelize-cli db:migrate:status
 
 # Undo the failed migration
-npm run migrate:undo
+pnpm migrate:undo
 
 # Fix the migration file, then run again
-npm run migrate
+pnpm migrate
 ```
 
 ### Database Out of Sync
 
 ```bash
 # Development: Reset everything
-npm run db:reset
+pnpm db:reset
 
 # Production: Never reset, create a new migration to fix
-npx sequelize-cli migration:generate --name fix-schema-issue
+pnpm dlx sequelize-cli migration:generate --name fix-schema-issue
 ```
 
 ### Seeder Failed
 
 ```bash
 # Undo the failed seeder
-npm run seed:undo
+pnpm seed:undo
 
 # Fix the seeder file, then run again
-npm run seed
+pnpm seed
 ```
 
 ---

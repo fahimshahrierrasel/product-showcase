@@ -43,13 +43,13 @@ backend/
 
 - Node.js 18+
 - MySQL 8.0
-- npm or yarn
+- pnpm
 
 ### Installation
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Configure environment variables
 cp .env.example .env
@@ -60,23 +60,23 @@ cp .env.example .env
 
 ```bash
 # Run migrations to create tables
-npm run migrate
+pnpm migrate
 
 # Seed database with sample data
-npm run seed
+pnpm seed
 ```
 
 ### Development
 
 ```bash
 # Start development server with hot reload
-npm run dev
+pnpm dev
 
 # Build for production
-npm run build
+pnpm build
 
 # Start production server
-npm start
+pnpm start
 ```
 
 ## 🌍 Environment Variables
@@ -103,29 +103,29 @@ DB_HOST=db
 
 ```bash
 # Create a new migration
-npm run migrate:create -- --name add-new-field
+pnpm migrate:create -- --name add-new-field
 
 # Run all pending migrations
-npm run migrate
+pnpm migrate
 
 # Undo last migration
-npm run migrate:undo
+pnpm migrate:undo
 
 # Undo all migrations
-npm run migrate:undo:all
+pnpm migrate:undo:all
 ```
 
 ### Seeders
 
 ```bash
 # Run all seeders
-npm run seed
+pnpm seed
 
 # Undo all seeders
-npm run seed:undo:all
+pnpm seed:undo:all
 
 # Run specific seeder
-npx sequelize-cli db:seed --seed seeder-filename.js
+pnpm dlx sequelize-cli db:seed --seed seeder-filename.js
 ```
 
 See [MIGRATIONS_README.md](MIGRATIONS_README.md) for detailed documentation.
@@ -226,7 +226,7 @@ docker-compose up --build backend
 docker-compose logs -f backend
 
 # Execute commands in container
-docker-compose exec backend npm run migrate
+docker-compose exec backend pnpm migrate
 ```
 
 ## 📝 Notes

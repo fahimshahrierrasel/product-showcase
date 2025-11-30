@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { User } from '../models';
 import Joi from 'joi';
+import jwt from 'jsonwebtoken';
 
 const registerSchema = Joi.object({
   email: Joi.string().email().required(),
@@ -58,7 +59,13 @@ export const login = async (req: Request, res: Response) => {
       return res.status(403).json({ message: 'User account is inactive' });
     }
 
-    res.json(user);
+    const token = jwt.sign(
+      { id: user.id, email: user.email, role: user.role },
+      process.env.JWT_SECRET || 'your_jwt_secret',
+      { expiresIn: '1d' }
+    );
+
+    res.json({ user, token });
   } catch (error) {
     res.status(500).json({ message: 'Error logging in', error });
   }

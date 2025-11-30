@@ -5,7 +5,6 @@ import Category from './Category';
 import Tag from './Tag';
 import ProductImage from './ProductImage';
 import HeroSlide from './HeroSlide';
-import Booking from './Booking';
 import ProductTag from './ProductTag';
 
 // Define associations
@@ -30,6 +29,5 @@ export {
   Tag,
   ProductImage,
   HeroSlide,
-  Booking,
   ProductTag,
 };

@@ -13,6 +13,7 @@ uploads/
 # Logs
 *.log
 logs/
+pnpm-debug.log*
 
 # Database
 *.sqlite

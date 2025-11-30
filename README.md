@@ -53,7 +53,7 @@ A professional, SEO-optimized electronics product showcase website featuring the
 
 - Docker & Docker Compose
 - Node.js 18+ (for local development)
-- npm or yarn
+- pnpm
 
 ## 🚀 Getting Started
 
@@ -85,34 +85,34 @@ A professional, SEO-optimized electronics product showcase website featuring the
 
 ```bash
 cd backend
-npm install
+pnpm install
 
 # Configure environment variables
 cp .env.example .env
 # Edit .env with your database credentials
 
 # Run migrations
-npm run migrate
+pnpm migrate
 
 # Seed database
-npm run seed
+pnpm seed
 
 # Start development server
-npm run dev
+pnpm dev
 ```
 
 #### Frontend Setup
 
 ```bash
 cd frontend
-npm install
+pnpm install
 
 # Configure environment variables
 cp .env.example .env.local
 # Edit .env.local with API URL
 
 # Start development server
-npm run dev
+pnpm dev
 ```
 
 ## 🔐 Admin Credentials
@@ -130,26 +130,26 @@ npm run dev
 ```bash
 # Create a new migration
 cd backend
-npm run migrate:create -- --name migration-name
+pnpm migrate:create -- --name migration-name
 
 # Run migrations
-npm run migrate
+pnpm migrate
 
 # Undo last migration
-npm run migrate:undo
+pnpm migrate:undo
 
 # Undo all migrations
-npm run migrate:undo:all
+pnpm migrate:undo:all
 ```
 
 ### Seeders
 
 ```bash
 # Run all seeders
-npm run seed
+pnpm seed
 
 # Undo all seeders
-npm run seed:undo:all
+pnpm seed:undo:all
 ```
 
 See [backend/MIGRATIONS_README.md](backend/MIGRATIONS_README.md) for detailed migration documentation.

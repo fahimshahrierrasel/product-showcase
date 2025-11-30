@@ -49,13 +49,13 @@ frontend/
 ### Prerequisites
 
 - Node.js 18+
-- npm or yarn
+- pnpm
 
 ### Installation
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Configure environment variables
 cp .env.example .env.local
@@ -66,7 +66,7 @@ cp .env.example .env.local
 
 ```bash
 # Start development server
-npm run dev
+pnpm dev
 
 # Open http://localhost:3000
 ```
@@ -75,10 +75,10 @@ npm run dev
 
 ```bash
 # Build for production
-npm run build
+pnpm build
 
 # Start production server
-npm start
+pnpm start
 ```
 
 ## 🌍 Environment Variables
@@ -128,7 +128,7 @@ Utility-first CSS framework. Configuration in `tailwind.config.ts`.
 Pre-built, accessible components. Add new components:
 
 ```bash
-npx shadcn-ui@latest add button
+pnpm dlx shadcn-ui@latest add button
 ```
 
 ### Custom Styles
@@ -211,7 +211,7 @@ Changes to files automatically trigger hot reload in development mode.
 TypeScript provides type checking. Run:
 
 ```bash
-npm run type-check
+pnpm type-check
 ```
 
 ### Linting
@@ -219,7 +219,7 @@ npm run type-check
 ESLint is configured. Run:
 
 ```bash
-npm run lint
+pnpm lint
 ```
 
 ## 📝 Notes

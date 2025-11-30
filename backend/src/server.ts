@@ -15,6 +15,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Request logging middleware
+import { requestLogger } from './middleware/requestLogger';
+app.use(requestLogger);
+
 // Static files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -24,6 +28,7 @@ import categoryRoutes from './routes/categoryRoutes';
 import tagRoutes from './routes/tagRoutes';
 import userRoutes from './routes/userRoutes';
 import homeInfoRoutes from './routes/homeInfoRoutes';
+import heroSlideRoutes from './routes/heroSlideRoutes';
 
 // Routes
 app.use('/api/products', productRoutes);
@@ -32,6 +37,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/tags', tagRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/home-info', homeInfoRoutes);
+app.use('/api/hero-slides', heroSlideRoutes);
 
 app.get('/', (req, res) => {
   res.send('Product Review API is running');
